@@ -1,0 +1,15 @@
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\bin\Debug\ColorBasics-WPF.exe.config
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\bin\Debug\ColorBasics-WPF.exe
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\bin\Debug\ColorBasics-WPF.pdb
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\bin\Debug\System.Data.SQLite.dll
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\bin\Debug\System.Data.SQLite.xml
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\ColorBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\MainWindow.baml
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\MainWindow.g.cs
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\App.g.cs
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\ColorBasics-WPF_MarkupCompile.cache
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\ColorBasics-WPF.g.resources
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\Microsoft.Samples.Kinect.ColorBasics.Properties.Resources.resources
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\ColorBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\ColorBasics-WPF.exe
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\ColorBasics-WPF.pdb

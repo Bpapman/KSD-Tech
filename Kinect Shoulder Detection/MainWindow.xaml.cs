@@ -1,4 +1,4 @@
-//------------------------------------------------------------------------------
+﻿//------------------------------------------------------------------------------
 // <copyright file="MainWindow.xaml.cs" company="Microsoft">
 //     Copyright (c) Microsoft Corporation.  All rights reserved.
 // </copyright>
@@ -73,9 +73,9 @@ namespace Microsoft.Samples.Kinect.ColorBasics
             System.Console.WriteLine("Inserting Dummy Test Values");
             for (int i = 0; i < 100; i++)
             {
-                x = r.Next(0,100);
-                y = r.Next(0,100);
-                z = r.Next(0,100);
+                x = r.Next(0, 100);
+                y = r.Next(0, 100);
+                z = r.Next(0, 100);
                 var = x + y + z;
                 kFrame frame = new kFrame(sessionID, i, "Y", "Y", x, y, z, x, y, z);
                 sessionData.addFrame(frame, sessionID);
