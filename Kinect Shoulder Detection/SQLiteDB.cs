@@ -18,10 +18,10 @@
  
  
  
- var codesite_token = "H_OkkYVipOavhs4WL94QSL6JBEI:1381443207836";
+ var codesite_token = "NhV3P9Nj0TmtL8O6LnXLpg5N3So:1381443204623";
  
  
- var CS_env = {"assetVersionPath":"https://ssl.gstatic.com/codesite/ph/9670661675484913303","projectName":"kinect-shoulder","projectHomeUrl":"/p/kinect-shoulder","relativeBaseUrl":"","loggedInUserEmail":"bpapman@gmail.com","profileUrl":"/u/bpapman/","token":"H_OkkYVipOavhs4WL94QSL6JBEI:1381443207836","domainName":null,"assetHostPath":"https://ssl.gstatic.com/codesite/ph"};
+ var CS_env = {"projectName":"kinect-shoulder","projectHomeUrl":"/p/kinect-shoulder","assetVersionPath":"https://ssl.gstatic.com/codesite/ph/9670661675484913303","loggedInUserEmail":"bpapman@gmail.com","relativeBaseUrl":"","token":"NhV3P9Nj0TmtL8O6LnXLpg5N3So:1381443204623","profileUrl":"/u/bpapman/","domainName":null,"assetHostPath":"https://ssl.gstatic.com/codesite/ph"};
  var _gaq = _gaq || [];
  _gaq.push(
  ['siteTracker._setAccount', 'UA-18071-1'],
@@ -36,7 +36,7 @@
  </script>
  
  
- <title>MainWindow.xaml.cs - 
+ <title>SQLiteDB.cs - 
  kinect-shoulder -
  
  
@@ -150,7 +150,7 @@
  | <a href="/u/bpapman/" onclick="_CS_click('/gb/ph/profile');"
  title="Profile, Updates, and Settings"
  ><u>Profile</u></a>
- | <a href="https://www.google.com/accounts/Logout?continue=https%3A%2F%2Fcode.google.com%2Fp%2Fkinect-shoulder%2Fsource%2Fbrowse%2FMainWindow.xaml.cs" 
+ | <a href="https://www.google.com/accounts/Logout?continue=https%3A%2F%2Fcode.google.com%2Fp%2Fkinect-shoulder%2Fsource%2Fbrowse%2FSQLiteDB.cs" 
  onclick="_CS_click('/gb/ph/signout');"
  ><u>Sign out</u></a>
  
@@ -330,7 +330,7 @@ contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>
  <span id="crumb_root">
  
  <a href="/p/kinect-shoulder/source/browse/">svn</a>/&nbsp;</span>
- <span id="crumb_links" class="ifClosed">MainWindow.xaml.cs</span>
+ <span id="crumb_links" class="ifClosed">SQLiteDB.cs</span>
  
  
 
@@ -339,7 +339,7 @@ contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>
  
  
  <td nowrap="nowrap" width="33%" align="center">
- <a href="/p/kinect-shoulder/source/browse/MainWindow.xaml.cs?edit=1"
+ <a href="/p/kinect-shoulder/source/browse/SQLiteDB.cs?edit=1"
  ><img src="https://ssl.gstatic.com/codesite/ph/images/pencil-y14.png"
  class="edit_icon">Edit file</a>
  </td>
@@ -352,7 +352,7 @@ contributes to open source, such as <a href="http://www.firefox.com">Firefox</a>
  <td class="flipper">
  <ul class="leftside">
  
- <li><a href="/p/kinect-shoulder/source/browse/MainWindow.xaml.cs?r=5" title="Previous">&lsaquo;r5</a></li>
+ <li><a href="/p/kinect-shoulder/source/browse/SQLiteDB.cs?r=8" title="Previous">&lsaquo;r8</a></li>
  
  </ul>
  </td>
@@ -1678,6 +1678,336 @@ onmouseout="gutterOut()"><tr>
 
 ><td><span title="Add comment" onclick="codereviews.startEdit('svn11',217);">&nbsp;</span
 ></td><td id="217"><a href="#217">217</a></td></tr
+><tr id="gr_svn11_218"
+
+ onmouseover="gutterOver(218)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',218);">&nbsp;</span
+></td><td id="218"><a href="#218">218</a></td></tr
+><tr id="gr_svn11_219"
+
+ onmouseover="gutterOver(219)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',219);">&nbsp;</span
+></td><td id="219"><a href="#219">219</a></td></tr
+><tr id="gr_svn11_220"
+
+ onmouseover="gutterOver(220)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',220);">&nbsp;</span
+></td><td id="220"><a href="#220">220</a></td></tr
+><tr id="gr_svn11_221"
+
+ onmouseover="gutterOver(221)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',221);">&nbsp;</span
+></td><td id="221"><a href="#221">221</a></td></tr
+><tr id="gr_svn11_222"
+
+ onmouseover="gutterOver(222)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',222);">&nbsp;</span
+></td><td id="222"><a href="#222">222</a></td></tr
+><tr id="gr_svn11_223"
+
+ onmouseover="gutterOver(223)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',223);">&nbsp;</span
+></td><td id="223"><a href="#223">223</a></td></tr
+><tr id="gr_svn11_224"
+
+ onmouseover="gutterOver(224)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',224);">&nbsp;</span
+></td><td id="224"><a href="#224">224</a></td></tr
+><tr id="gr_svn11_225"
+
+ onmouseover="gutterOver(225)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',225);">&nbsp;</span
+></td><td id="225"><a href="#225">225</a></td></tr
+><tr id="gr_svn11_226"
+
+ onmouseover="gutterOver(226)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',226);">&nbsp;</span
+></td><td id="226"><a href="#226">226</a></td></tr
+><tr id="gr_svn11_227"
+
+ onmouseover="gutterOver(227)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',227);">&nbsp;</span
+></td><td id="227"><a href="#227">227</a></td></tr
+><tr id="gr_svn11_228"
+
+ onmouseover="gutterOver(228)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',228);">&nbsp;</span
+></td><td id="228"><a href="#228">228</a></td></tr
+><tr id="gr_svn11_229"
+
+ onmouseover="gutterOver(229)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',229);">&nbsp;</span
+></td><td id="229"><a href="#229">229</a></td></tr
+><tr id="gr_svn11_230"
+
+ onmouseover="gutterOver(230)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',230);">&nbsp;</span
+></td><td id="230"><a href="#230">230</a></td></tr
+><tr id="gr_svn11_231"
+
+ onmouseover="gutterOver(231)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',231);">&nbsp;</span
+></td><td id="231"><a href="#231">231</a></td></tr
+><tr id="gr_svn11_232"
+
+ onmouseover="gutterOver(232)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',232);">&nbsp;</span
+></td><td id="232"><a href="#232">232</a></td></tr
+><tr id="gr_svn11_233"
+
+ onmouseover="gutterOver(233)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',233);">&nbsp;</span
+></td><td id="233"><a href="#233">233</a></td></tr
+><tr id="gr_svn11_234"
+
+ onmouseover="gutterOver(234)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',234);">&nbsp;</span
+></td><td id="234"><a href="#234">234</a></td></tr
+><tr id="gr_svn11_235"
+
+ onmouseover="gutterOver(235)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',235);">&nbsp;</span
+></td><td id="235"><a href="#235">235</a></td></tr
+><tr id="gr_svn11_236"
+
+ onmouseover="gutterOver(236)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',236);">&nbsp;</span
+></td><td id="236"><a href="#236">236</a></td></tr
+><tr id="gr_svn11_237"
+
+ onmouseover="gutterOver(237)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',237);">&nbsp;</span
+></td><td id="237"><a href="#237">237</a></td></tr
+><tr id="gr_svn11_238"
+
+ onmouseover="gutterOver(238)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',238);">&nbsp;</span
+></td><td id="238"><a href="#238">238</a></td></tr
+><tr id="gr_svn11_239"
+
+ onmouseover="gutterOver(239)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',239);">&nbsp;</span
+></td><td id="239"><a href="#239">239</a></td></tr
+><tr id="gr_svn11_240"
+
+ onmouseover="gutterOver(240)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',240);">&nbsp;</span
+></td><td id="240"><a href="#240">240</a></td></tr
+><tr id="gr_svn11_241"
+
+ onmouseover="gutterOver(241)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',241);">&nbsp;</span
+></td><td id="241"><a href="#241">241</a></td></tr
+><tr id="gr_svn11_242"
+
+ onmouseover="gutterOver(242)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',242);">&nbsp;</span
+></td><td id="242"><a href="#242">242</a></td></tr
+><tr id="gr_svn11_243"
+
+ onmouseover="gutterOver(243)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',243);">&nbsp;</span
+></td><td id="243"><a href="#243">243</a></td></tr
+><tr id="gr_svn11_244"
+
+ onmouseover="gutterOver(244)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',244);">&nbsp;</span
+></td><td id="244"><a href="#244">244</a></td></tr
+><tr id="gr_svn11_245"
+
+ onmouseover="gutterOver(245)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',245);">&nbsp;</span
+></td><td id="245"><a href="#245">245</a></td></tr
+><tr id="gr_svn11_246"
+
+ onmouseover="gutterOver(246)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',246);">&nbsp;</span
+></td><td id="246"><a href="#246">246</a></td></tr
+><tr id="gr_svn11_247"
+
+ onmouseover="gutterOver(247)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',247);">&nbsp;</span
+></td><td id="247"><a href="#247">247</a></td></tr
+><tr id="gr_svn11_248"
+
+ onmouseover="gutterOver(248)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',248);">&nbsp;</span
+></td><td id="248"><a href="#248">248</a></td></tr
+><tr id="gr_svn11_249"
+
+ onmouseover="gutterOver(249)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',249);">&nbsp;</span
+></td><td id="249"><a href="#249">249</a></td></tr
+><tr id="gr_svn11_250"
+
+ onmouseover="gutterOver(250)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',250);">&nbsp;</span
+></td><td id="250"><a href="#250">250</a></td></tr
+><tr id="gr_svn11_251"
+
+ onmouseover="gutterOver(251)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',251);">&nbsp;</span
+></td><td id="251"><a href="#251">251</a></td></tr
+><tr id="gr_svn11_252"
+
+ onmouseover="gutterOver(252)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',252);">&nbsp;</span
+></td><td id="252"><a href="#252">252</a></td></tr
+><tr id="gr_svn11_253"
+
+ onmouseover="gutterOver(253)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',253);">&nbsp;</span
+></td><td id="253"><a href="#253">253</a></td></tr
+><tr id="gr_svn11_254"
+
+ onmouseover="gutterOver(254)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',254);">&nbsp;</span
+></td><td id="254"><a href="#254">254</a></td></tr
+><tr id="gr_svn11_255"
+
+ onmouseover="gutterOver(255)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',255);">&nbsp;</span
+></td><td id="255"><a href="#255">255</a></td></tr
+><tr id="gr_svn11_256"
+
+ onmouseover="gutterOver(256)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',256);">&nbsp;</span
+></td><td id="256"><a href="#256">256</a></td></tr
+><tr id="gr_svn11_257"
+
+ onmouseover="gutterOver(257)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',257);">&nbsp;</span
+></td><td id="257"><a href="#257">257</a></td></tr
+><tr id="gr_svn11_258"
+
+ onmouseover="gutterOver(258)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',258);">&nbsp;</span
+></td><td id="258"><a href="#258">258</a></td></tr
+><tr id="gr_svn11_259"
+
+ onmouseover="gutterOver(259)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',259);">&nbsp;</span
+></td><td id="259"><a href="#259">259</a></td></tr
+><tr id="gr_svn11_260"
+
+ onmouseover="gutterOver(260)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',260);">&nbsp;</span
+></td><td id="260"><a href="#260">260</a></td></tr
+><tr id="gr_svn11_261"
+
+ onmouseover="gutterOver(261)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',261);">&nbsp;</span
+></td><td id="261"><a href="#261">261</a></td></tr
+><tr id="gr_svn11_262"
+
+ onmouseover="gutterOver(262)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',262);">&nbsp;</span
+></td><td id="262"><a href="#262">262</a></td></tr
+><tr id="gr_svn11_263"
+
+ onmouseover="gutterOver(263)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',263);">&nbsp;</span
+></td><td id="263"><a href="#263">263</a></td></tr
+><tr id="gr_svn11_264"
+
+ onmouseover="gutterOver(264)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',264);">&nbsp;</span
+></td><td id="264"><a href="#264">264</a></td></tr
+><tr id="gr_svn11_265"
+
+ onmouseover="gutterOver(265)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',265);">&nbsp;</span
+></td><td id="265"><a href="#265">265</a></td></tr
+><tr id="gr_svn11_266"
+
+ onmouseover="gutterOver(266)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',266);">&nbsp;</span
+></td><td id="266"><a href="#266">266</a></td></tr
+><tr id="gr_svn11_267"
+
+ onmouseover="gutterOver(267)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',267);">&nbsp;</span
+></td><td id="267"><a href="#267">267</a></td></tr
+><tr id="gr_svn11_268"
+
+ onmouseover="gutterOver(268)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',268);">&nbsp;</span
+></td><td id="268"><a href="#268">268</a></td></tr
+><tr id="gr_svn11_269"
+
+ onmouseover="gutterOver(269)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',269);">&nbsp;</span
+></td><td id="269"><a href="#269">269</a></td></tr
+><tr id="gr_svn11_270"
+
+ onmouseover="gutterOver(270)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',270);">&nbsp;</span
+></td><td id="270"><a href="#270">270</a></td></tr
+><tr id="gr_svn11_271"
+
+ onmouseover="gutterOver(271)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',271);">&nbsp;</span
+></td><td id="271"><a href="#271">271</a></td></tr
+><tr id="gr_svn11_272"
+
+ onmouseover="gutterOver(272)"
+
+><td><span title="Add comment" onclick="codereviews.startEdit('svn11',272);">&nbsp;</span
+></td><td id="272"><a href="#272">272</a></td></tr
 ></table></pre>
 <pre><table width="100%"><tr class="nocursor"><td></td></tr></table></pre>
 </td>
@@ -1688,361 +2018,361 @@ id=sl_svn11_1
 
  onmouseover="gutterOver(1)"
 
-><td class="source">//------------------------------------------------------------------------------<br></td></tr
+><td class="source">using System;<br></td></tr
 ><tr
 id=sl_svn11_2
 
  onmouseover="gutterOver(2)"
 
-><td class="source">// &lt;copyright file=&quot;MainWindow.xaml.cs&quot; company=&quot;Microsoft&quot;&gt;<br></td></tr
+><td class="source">using System.Collections.Generic;<br></td></tr
 ><tr
 id=sl_svn11_3
 
  onmouseover="gutterOver(3)"
 
-><td class="source">//     Copyright (c) Microsoft Corporation.  All rights reserved.<br></td></tr
+><td class="source">using System.Data;<br></td></tr
 ><tr
 id=sl_svn11_4
 
  onmouseover="gutterOver(4)"
 
-><td class="source">// &lt;/copyright&gt;<br></td></tr
+><td class="source">using System.Data.SQLite;<br></td></tr
 ><tr
 id=sl_svn11_5
 
  onmouseover="gutterOver(5)"
 
-><td class="source">//------------------------------------------------------------------------------<br></td></tr
+><td class="source">using System.Linq;<br></td></tr
 ><tr
 id=sl_svn11_6
 
  onmouseover="gutterOver(6)"
 
-><td class="source"><br></td></tr
+><td class="source">using System.Text;<br></td></tr
 ><tr
 id=sl_svn11_7
 
  onmouseover="gutterOver(7)"
 
-><td class="source">namespace Microsoft.Samples.Kinect.ColorBasics<br></td></tr
+><td class="source">//using Finisar.SQLite;<br></td></tr
 ><tr
 id=sl_svn11_8
 
  onmouseover="gutterOver(8)"
 
-><td class="source">{<br></td></tr
+><td class="source">//using Microsoft.Samples.Kinect.ColorBasics.kFrame;<br></td></tr
 ><tr
 id=sl_svn11_9
 
  onmouseover="gutterOver(9)"
 
-><td class="source">    using System;<br></td></tr
+><td class="source">//using System.Windows.Forms;<br></td></tr
 ><tr
 id=sl_svn11_10
 
  onmouseover="gutterOver(10)"
 
-><td class="source">    using System.Data.SQLite;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_11
 
  onmouseover="gutterOver(11)"
 
-><td class="source">    using System.Globalization;<br></td></tr
+><td class="source">namespace Microsoft.Samples.Kinect.ColorBasics<br></td></tr
 ><tr
 id=sl_svn11_12
 
  onmouseover="gutterOver(12)"
 
-><td class="source">    using System.IO;<br></td></tr
+><td class="source">{<br></td></tr
 ><tr
 id=sl_svn11_13
 
  onmouseover="gutterOver(13)"
 
-><td class="source">    using System.Windows;<br></td></tr
+><td class="source">    public class SQLiteDB<br></td></tr
 ><tr
 id=sl_svn11_14
 
  onmouseover="gutterOver(14)"
 
-><td class="source">    using System.Windows.Media;<br></td></tr
+><td class="source">    {<br></td></tr
 ><tr
 id=sl_svn11_15
 
  onmouseover="gutterOver(15)"
 
-><td class="source">    using System.Windows.Media.Imaging;<br></td></tr
+><td class="source">        // Three basic SQLite objects:<br></td></tr
 ><tr
 id=sl_svn11_16
 
  onmouseover="gutterOver(16)"
 
-><td class="source">    using Microsoft.Kinect;<br></td></tr
+><td class="source">        public SQLiteConnection sqConnection;<br></td></tr
 ><tr
 id=sl_svn11_17
 
  onmouseover="gutterOver(17)"
 
-><td class="source">    //using Finisar.SQLite;<br></td></tr
+><td class="source">        public SQLiteCommand sqCmd;<br></td></tr
 ><tr
 id=sl_svn11_18
 
  onmouseover="gutterOver(18)"
 
-><td class="source">    //using SQLiteDB;<br></td></tr
+><td class="source">        public SQLiteDataReader sqDatareader;<br></td></tr
 ><tr
 id=sl_svn11_19
 
  onmouseover="gutterOver(19)"
 
-><td class="source">    //using kFrame;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_20
 
  onmouseover="gutterOver(20)"
 
-><td class="source"><br></td></tr
+><td class="source">        public string queries;<br></td></tr
 ><tr
 id=sl_svn11_21
 
  onmouseover="gutterOver(21)"
 
-><td class="source">    /// &lt;summary&gt;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_22
 
  onmouseover="gutterOver(22)"
 
-><td class="source">    /// Interaction logic for MainWindow.xaml<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_23
 
  onmouseover="gutterOver(23)"
 
-><td class="source">    /// &lt;/summary&gt;<br></td></tr
+><td class="source">        public SQLiteDB()<br></td></tr
 ><tr
 id=sl_svn11_24
 
  onmouseover="gutterOver(24)"
 
-><td class="source">    public partial class MainWindow : Window<br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_25
 
  onmouseover="gutterOver(25)"
 
-><td class="source">    {<br></td></tr
+><td class="source">            //this.onCreate();<br></td></tr
 ><tr
 id=sl_svn11_26
 
  onmouseover="gutterOver(26)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_27
 
  onmouseover="gutterOver(27)"
 
-><td class="source">        /// Active Kinect sensor<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_28
 
  onmouseover="gutterOver(28)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">        //Open and create database name<br></td></tr
 ><tr
 id=sl_svn11_29
 
  onmouseover="gutterOver(29)"
 
-><td class="source">        private KinectSensor sensor;<br></td></tr
+><td class="source">        public void open()<br></td></tr
 ><tr
 id=sl_svn11_30
 
  onmouseover="gutterOver(30)"
 
-><td class="source"><br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_31
 
  onmouseover="gutterOver(31)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Opening Database&quot;);<br></td></tr
 ><tr
 id=sl_svn11_32
 
  onmouseover="gutterOver(32)"
 
-><td class="source">        /// Bitmap that will hold color information<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_33
 
  onmouseover="gutterOver(33)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">            //original reference &quot;Data Source=test.db;Version=3;New=True;Compress=True;&quot;<br></td></tr
 ><tr
 id=sl_svn11_34
 
  onmouseover="gutterOver(34)"
 
-><td class="source">        private WriteableBitmap colorBitmap;<br></td></tr
+><td class="source">            // code to log in (does nothing locally)Uid = admin; Pwd = admin;<br></td></tr
 ><tr
 id=sl_svn11_35
 
  onmouseover="gutterOver(35)"
 
-><td class="source"><br></td></tr
+><td class="source">            string dbsetup = String.Format(&quot;Data Source={0}{1}.db;Version=3;New=True;Compress=True;&quot;, System.Environment.MachineName, DateTime.Now.ToString(&quot;ddMMyy_HHmmtt&quot;));<br></td></tr
 ><tr
 id=sl_svn11_36
 
  onmouseover="gutterOver(36)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source">            //dbName = String.Format(&quot;Data Source=&quot; + DateTime.Now.ToString(&quot;ddMMyyyy_HHMMtt&quot;) + &quot;.db;Version=3;New=True;Compress=True;&quot;; <br></td></tr
 ><tr
 id=sl_svn11_37
 
  onmouseover="gutterOver(37)"
 
-><td class="source">        /// Intermediate storage for the color data received from the camera<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_38
 
  onmouseover="gutterOver(38)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">            sqConnection = new SQLiteConnection(dbsetup);<br></td></tr
 ><tr
 id=sl_svn11_39
 
  onmouseover="gutterOver(39)"
 
-><td class="source">        private byte[] colorPixels;<br></td></tr
+><td class="source">            try<br></td></tr
 ><tr
 id=sl_svn11_40
 
  onmouseover="gutterOver(40)"
 
-><td class="source"><br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_41
 
  onmouseover="gutterOver(41)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source">                //sqConnection = new SQLiteConnection(&quot;Data Source=&quot; + timestamp + &quot;.sqlite;Version=3;New=True;Compress=True;&quot;);<br></td></tr
 ><tr
 id=sl_svn11_42
 
  onmouseover="gutterOver(42)"
 
-><td class="source">        /// Initializes a new instance of the MainWindow class.<br></td></tr
+><td class="source">                sqConnection.Open();<br></td></tr
 ><tr
 id=sl_svn11_43
 
  onmouseover="gutterOver(43)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_44
 
  onmouseover="gutterOver(44)"
 
-><td class="source">        public MainWindow()<br></td></tr
+><td class="source">            catch (Exception e)<br></td></tr
 ><tr
 id=sl_svn11_45
 
  onmouseover="gutterOver(45)"
 
-><td class="source">        {<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_46
 
  onmouseover="gutterOver(46)"
 
-><td class="source">            InitializeComponent();<br></td></tr
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
 ><tr
 id=sl_svn11_47
 
  onmouseover="gutterOver(47)"
 
-><td class="source">        }<br></td></tr
+><td class="source">                System.Console.WriteLine(&quot;DB open/creation failed&quot;);<br></td></tr
 ><tr
 id=sl_svn11_48
 
  onmouseover="gutterOver(48)"
 
-><td class="source"><br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_49
 
  onmouseover="gutterOver(49)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_50
 
  onmouseover="gutterOver(50)"
 
-><td class="source">        /// Execute startup tasks<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;DB Open&quot;);<br></td></tr
 ><tr
 id=sl_svn11_51
 
  onmouseover="gutterOver(51)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_52
 
  onmouseover="gutterOver(52)"
 
-><td class="source">        /// &lt;param name=&quot;sender&quot;&gt;object sending the event&lt;/param&gt;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_53
 
  onmouseover="gutterOver(53)"
 
-><td class="source">        /// &lt;param name=&quot;e&quot;&gt;event arguments&lt;/param&gt;<br></td></tr
+><td class="source">        public void close()<br></td></tr
 ><tr
 id=sl_svn11_54
 
  onmouseover="gutterOver(54)"
 
-><td class="source">        private void WindowLoaded(object sender, RoutedEventArgs e)<br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_55
 
  onmouseover="gutterOver(55)"
 
-><td class="source">        {<br></td></tr
+><td class="source">            sqConnection.Close();<br></td></tr
 ><tr
 id=sl_svn11_56
 
  onmouseover="gutterOver(56)"
 
-><td class="source">            int sessionID = 0;<br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_57
 
  onmouseover="gutterOver(57)"
 
-><td class="source">            System.Console.WriteLine(&quot;Creating DB Session&quot;);<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_58
 
  onmouseover="gutterOver(58)"
 
-><td class="source"><br></td></tr
+><td class="source">        public void initTables()<br></td></tr
 ><tr
 id=sl_svn11_59
 
  onmouseover="gutterOver(59)"
 
-><td class="source">            SQLiteDB sessionData = new SQLiteDB();<br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_60
 
  onmouseover="gutterOver(60)"
 
-><td class="source">            sessionData.open();<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Initializing Tables&quot;);<br></td></tr
 ><tr
 id=sl_svn11_61
 
@@ -2054,121 +2384,121 @@ id=sl_svn11_62
 
  onmouseover="gutterOver(62)"
 
-><td class="source">            System.Console.WriteLine(&quot;Running Table Creation&quot;);<br></td></tr
+><td class="source">            try<br></td></tr
 ><tr
 id=sl_svn11_63
 
  onmouseover="gutterOver(63)"
 
-><td class="source">            sessionData.initTables();<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_64
 
  onmouseover="gutterOver(64)"
 
-><td class="source"><br></td></tr
+><td class="source">                //table created when dll starts to keep track of unique identifiers for the program<br></td></tr
 ><tr
 id=sl_svn11_65
 
  onmouseover="gutterOver(65)"
 
-><td class="source">            System.Console.WriteLine(&quot;Running Header Creation&quot;);<br></td></tr
+><td class="source">                queries = &quot;CREATE TABLE headerManager (machine VARCHAR(30) PRIMARY KEY, timestamp VARCHAR(30), mode INTEGER);&quot;;<br></td></tr
 ><tr
 id=sl_svn11_66
 
  onmouseover="gutterOver(66)"
 
-><td class="source">            sessionData.createHeader(1);<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_67
 
  onmouseover="gutterOver(67)"
 
-><td class="source"><br></td></tr
+><td class="source">                sqCmd.ExecuteNonQuery();<br></td></tr
 ><tr
 id=sl_svn11_68
 
  onmouseover="gutterOver(68)"
 
-><td class="source">            //testing purposes for database<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_69
 
  onmouseover="gutterOver(69)"
 
-><td class="source">            int x, y, z;<br></td></tr
+><td class="source">                //table for running time, x,y,z values, and permittable variance values<br></td></tr
 ><tr
 id=sl_svn11_70
 
  onmouseover="gutterOver(70)"
 
-><td class="source">            double var;<br></td></tr
+><td class="source">                queries = &quot;CREATE TABLE frameManager (session INTEGER, frame INTEGER, shoulder VARCHAR(1), accept VARCHAR(1), tx DOUBLE, ty DOUBLE, tz DOUBLE, sx DOUBLE, sy DOUBLE, sz DOUBLE, PRIMARY KEY(session, frame));&quot;;<br></td></tr
 ><tr
 id=sl_svn11_71
 
  onmouseover="gutterOver(71)"
 
-><td class="source">            Random r = new Random();<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_72
 
  onmouseover="gutterOver(72)"
 
-><td class="source"><br></td></tr
+><td class="source">                sqCmd.ExecuteNonQuery();<br></td></tr
 ><tr
 id=sl_svn11_73
 
  onmouseover="gutterOver(73)"
 
-><td class="source">            System.Console.WriteLine(&quot;Inserting Dummy Test Values&quot;);<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_74
 
  onmouseover="gutterOver(74)"
 
-><td class="source">            for (int i = 0; i &lt; 100; i++)<br></td></tr
+><td class="source">                queries = &quot;CREATE TABLE boxManager (session INTEGER, part VARCHAR(10), minx DOUBLE, miny DOUBLE, minz DOUBLE, maxx DOUBLE, maxy DOUBLE, maxz double, PRIMARY KEY (session, part));&quot;;<br></td></tr
 ><tr
 id=sl_svn11_75
 
  onmouseover="gutterOver(75)"
 
-><td class="source">            {<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_76
 
  onmouseover="gutterOver(76)"
 
-><td class="source">                x = r.Next(0,100);<br></td></tr
+><td class="source">                sqCmd.ExecuteNonQuery();<br></td></tr
 ><tr
 id=sl_svn11_77
 
  onmouseover="gutterOver(77)"
 
-><td class="source">                y = r.Next(0,100);<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_78
 
  onmouseover="gutterOver(78)"
 
-><td class="source">                z = r.Next(0,100);<br></td></tr
+><td class="source">                System.Console.WriteLine(&quot;Tables Created&quot;);<br></td></tr
 ><tr
 id=sl_svn11_79
 
  onmouseover="gutterOver(79)"
 
-><td class="source">                var = x + y + z;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_80
 
  onmouseover="gutterOver(80)"
 
-><td class="source">                kFrame frame = new kFrame(sessionID, i, &quot;Y&quot;, &quot;Y&quot;, x, y, z, x, y, z);<br></td></tr
+><td class="source">                //Put header into database<br></td></tr
 ><tr
 id=sl_svn11_81
 
  onmouseover="gutterOver(81)"
 
-><td class="source">                sessionData.addFrame(frame, sessionID);<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_82
 
@@ -2180,37 +2510,37 @@ id=sl_svn11_83
 
  onmouseover="gutterOver(83)"
 
-><td class="source"><br></td></tr
+><td class="source">            catch (Exception e)<br></td></tr
 ><tr
 id=sl_svn11_84
 
  onmouseover="gutterOver(84)"
 
-><td class="source">            kFrame boxframe = new kFrame(sessionID, 0, &quot;Y&quot;, &quot;Y&quot;, 1, 1, 1, 4, 4, 4);<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_85
 
  onmouseover="gutterOver(85)"
 
-><td class="source">            sessionData.createBoxes(boxframe);<br></td></tr
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
 ><tr
 id=sl_svn11_86
 
  onmouseover="gutterOver(86)"
 
-><td class="source"><br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_87
 
  onmouseover="gutterOver(87)"
 
-><td class="source">            System.Console.WriteLine(&quot;Test Data Inserted&quot;);<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_88
 
  onmouseover="gutterOver(88)"
 
-><td class="source">            sessionData.printFrames(sessionID);<br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_89
 
@@ -2222,151 +2552,151 @@ id=sl_svn11_90
 
  onmouseover="gutterOver(90)"
 
-><td class="source">            //sessionData<br></td></tr
+><td class="source">        public void createHeader(int Mode)<br></td></tr
 ><tr
 id=sl_svn11_91
 
  onmouseover="gutterOver(91)"
 
-><td class="source"><br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_92
 
  onmouseover="gutterOver(92)"
 
-><td class="source">            // Look through all sensors and start the first connected one.<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Creating new header&quot;);<br></td></tr
 ><tr
 id=sl_svn11_93
 
  onmouseover="gutterOver(93)"
 
-><td class="source">            // This requires that a Kinect is connected at the time of app startup.<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_94
 
  onmouseover="gutterOver(94)"
 
-><td class="source">            // To make your app robust against plug/unplug, <br></td></tr
+><td class="source">            try<br></td></tr
 ><tr
 id=sl_svn11_95
 
  onmouseover="gutterOver(95)"
 
-><td class="source">            // it is recommended to use KinectSensorChooser provided in Microsoft.Kinect.Toolkit (See components in Toolkit Browser).<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_96
 
  onmouseover="gutterOver(96)"
 
-><td class="source">            foreach (var potentialSensor in KinectSensor.KinectSensors)<br></td></tr
+><td class="source">                //Put header into database<br></td></tr
 ><tr
 id=sl_svn11_97
 
  onmouseover="gutterOver(97)"
 
-><td class="source">            {<br></td></tr
+><td class="source">                string machine = System.Environment.MachineName;<br></td></tr
 ><tr
 id=sl_svn11_98
 
  onmouseover="gutterOver(98)"
 
-><td class="source">                if (potentialSensor.Status == KinectStatus.Connected)<br></td></tr
+><td class="source">                string time = DateTime.Now.ToString(&quot;HH_MM_tt&quot;);<br></td></tr
 ><tr
 id=sl_svn11_99
 
  onmouseover="gutterOver(99)"
 
-><td class="source">                {<br></td></tr
+><td class="source">                //mode is given in function<br></td></tr
 ><tr
 id=sl_svn11_100
 
  onmouseover="gutterOver(100)"
 
-><td class="source">                    this.sensor = potentialSensor;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_101
 
  onmouseover="gutterOver(101)"
 
-><td class="source">                    break;<br></td></tr
+><td class="source">                //queries = &quot;INSERT INTO sessionManager (user, timestamp, sessionType) VALUES (&#39;&quot; + machine + &quot;&#39;, &#39;&quot; + date + &quot;&#39;, 1);&quot;;<br></td></tr
 ><tr
 id=sl_svn11_102
 
  onmouseover="gutterOver(102)"
 
-><td class="source">                }<br></td></tr
+><td class="source">                queries = &quot;INSERT INTO headerManager (machine, timestamp, mode) VALUES (@machine, @time, @mode);&quot;;<br></td></tr
 ><tr
 id=sl_svn11_103
 
  onmouseover="gutterOver(103)"
 
-><td class="source">            }<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_104
 
  onmouseover="gutterOver(104)"
 
-><td class="source"><br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@machine&quot;, machine);<br></td></tr
 ><tr
 id=sl_svn11_105
 
  onmouseover="gutterOver(105)"
 
-><td class="source">            if (null != this.sensor)<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@time&quot;, time);<br></td></tr
 ><tr
 id=sl_svn11_106
 
  onmouseover="gutterOver(106)"
 
-><td class="source">            {<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@mode&quot;, Mode);<br></td></tr
 ><tr
 id=sl_svn11_107
 
  onmouseover="gutterOver(107)"
 
-><td class="source">                // Turn on the color stream to receive color frames<br></td></tr
+><td class="source">                sqCmd.ExecuteNonQuery();<br></td></tr
 ><tr
 id=sl_svn11_108
 
  onmouseover="gutterOver(108)"
 
-><td class="source">                this.sensor.ColorStream.Enable(ColorImageFormat.RgbResolution640x480Fps30);<br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_109
 
  onmouseover="gutterOver(109)"
 
-><td class="source"><br></td></tr
+><td class="source">            catch (Exception e)<br></td></tr
 ><tr
 id=sl_svn11_110
 
  onmouseover="gutterOver(110)"
 
-><td class="source">                // Allocate space to put the pixels we&#39;ll receive<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_111
 
  onmouseover="gutterOver(111)"
 
-><td class="source">                this.colorPixels = new byte[this.sensor.ColorStream.FramePixelDataLength];<br></td></tr
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
 ><tr
 id=sl_svn11_112
 
  onmouseover="gutterOver(112)"
 
-><td class="source"><br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_113
 
  onmouseover="gutterOver(113)"
 
-><td class="source">                // This is the bitmap we&#39;ll display on-screen<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_114
 
  onmouseover="gutterOver(114)"
 
-><td class="source">                this.colorBitmap = new WriteableBitmap(this.sensor.ColorStream.FrameWidth, this.sensor.ColorStream.FrameHeight, 96.0, 96.0, PixelFormats.Bgr32, null);<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Header Insert End&quot;);<br></td></tr
 ><tr
 id=sl_svn11_115
 
@@ -2378,31 +2708,31 @@ id=sl_svn11_116
 
  onmouseover="gutterOver(116)"
 
-><td class="source">                // Set the image we display to point to the bitmap where we&#39;ll put the image data<br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_117
 
  onmouseover="gutterOver(117)"
 
-><td class="source">                this.Image.Source = this.colorBitmap;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_118
 
  onmouseover="gutterOver(118)"
 
-><td class="source"><br></td></tr
+><td class="source">        public void addFrame(kFrame frame, int sessionNum)<br></td></tr
 ><tr
 id=sl_svn11_119
 
  onmouseover="gutterOver(119)"
 
-><td class="source">                // Add an event handler to be called whenever there is new color frame data<br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_120
 
  onmouseover="gutterOver(120)"
 
-><td class="source">                this.sensor.ColorFrameReady += this.SensorColorFrameReady;<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;New frame&quot;);<br></td></tr
 ><tr
 id=sl_svn11_121
 
@@ -2414,415 +2744,415 @@ id=sl_svn11_122
 
  onmouseover="gutterOver(122)"
 
-><td class="source">                // Start the sensor!<br></td></tr
+><td class="source">            try<br></td></tr
 ><tr
 id=sl_svn11_123
 
  onmouseover="gutterOver(123)"
 
-><td class="source">                try<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_124
 
  onmouseover="gutterOver(124)"
 
-><td class="source">                {<br></td></tr
+><td class="source">                //queries = &quot;INSERT INTO frameManager (frame, x, y, z, variance) VALUES (&quot; + frame.getFrame() + &quot;, &quot; + frame.getX() + &quot;, &quot; + frame.getY() + &quot;, &quot; + frame.getZ() + &quot;, &quot; + frame.getVariance() + &quot;);&quot;;<br></td></tr
 ><tr
 id=sl_svn11_125
 
  onmouseover="gutterOver(125)"
 
-><td class="source">                    this.sensor.Start();<br></td></tr
+><td class="source">                queries = &quot;INSERT INTO frameManager (session, frame, shoulder, accept, tx, ty, tz, sx, sy, sz) VALUES (@session, @frame, @shoulder, @accept, @tx, @ty, @tz, @sx, @sy, @sz);&quot;;<br></td></tr
 ><tr
 id=sl_svn11_126
 
  onmouseover="gutterOver(126)"
 
-><td class="source">                }<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_127
 
  onmouseover="gutterOver(127)"
 
-><td class="source">                catch (IOException)<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@session&quot;, sessionNum);<br></td></tr
 ><tr
 id=sl_svn11_128
 
  onmouseover="gutterOver(128)"
 
-><td class="source">                {<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@frame&quot;, frame.getFrame());<br></td></tr
 ><tr
 id=sl_svn11_129
 
  onmouseover="gutterOver(129)"
 
-><td class="source">                    this.sensor = null;<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@shoulder&quot;, frame.getShoulder());<br></td></tr
 ><tr
 id=sl_svn11_130
 
  onmouseover="gutterOver(130)"
 
-><td class="source">                }<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@accept&quot;, frame.getAccept());<br></td></tr
 ><tr
 id=sl_svn11_131
 
  onmouseover="gutterOver(131)"
 
-><td class="source">            }<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@tx&quot;, frame.getTX());<br></td></tr
 ><tr
 id=sl_svn11_132
 
  onmouseover="gutterOver(132)"
 
-><td class="source"><br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@ty&quot;, frame.getTY());<br></td></tr
 ><tr
 id=sl_svn11_133
 
  onmouseover="gutterOver(133)"
 
-><td class="source">            if (null == this.sensor)<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@tz&quot;, frame.getTZ());<br></td></tr
 ><tr
 id=sl_svn11_134
 
  onmouseover="gutterOver(134)"
 
-><td class="source">            {<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@sx&quot;, frame.getSX());<br></td></tr
 ><tr
 id=sl_svn11_135
 
  onmouseover="gutterOver(135)"
 
-><td class="source">                this.statusBarText.Text = Properties.Resources.NoKinectReady;<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@sy&quot;, frame.getSY());<br></td></tr
 ><tr
 id=sl_svn11_136
 
  onmouseover="gutterOver(136)"
 
-><td class="source">            }<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@sz&quot;, frame.getSZ());<br></td></tr
 ><tr
 id=sl_svn11_137
 
  onmouseover="gutterOver(137)"
 
-><td class="source">        }<br></td></tr
+><td class="source">                sqCmd.ExecuteNonQuery();<br></td></tr
 ><tr
 id=sl_svn11_138
 
  onmouseover="gutterOver(138)"
 
-><td class="source"><br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_139
 
  onmouseover="gutterOver(139)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source">            catch (Exception e)<br></td></tr
 ><tr
 id=sl_svn11_140
 
  onmouseover="gutterOver(140)"
 
-><td class="source">        /// Execute shutdown tasks<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_141
 
  onmouseover="gutterOver(141)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
 ><tr
 id=sl_svn11_142
 
  onmouseover="gutterOver(142)"
 
-><td class="source">        /// &lt;param name=&quot;sender&quot;&gt;object sending the event&lt;/param&gt;<br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_143
 
  onmouseover="gutterOver(143)"
 
-><td class="source">        /// &lt;param name=&quot;e&quot;&gt;event arguments&lt;/param&gt;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_144
 
  onmouseover="gutterOver(144)"
 
-><td class="source">        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;New frame END&quot;);<br></td></tr
 ><tr
 id=sl_svn11_145
 
  onmouseover="gutterOver(145)"
 
-><td class="source">        {<br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_146
 
  onmouseover="gutterOver(146)"
 
-><td class="source">            if (null != this.sensor)<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_147
 
  onmouseover="gutterOver(147)"
 
-><td class="source">            {<br></td></tr
+><td class="source">        public List&lt;kFrame&gt; getAllkFrame(int sessionid)<br></td></tr
 ><tr
 id=sl_svn11_148
 
  onmouseover="gutterOver(148)"
 
-><td class="source">                this.sensor.Stop();<br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_149
 
  onmouseover="gutterOver(149)"
 
-><td class="source">            }<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Get ALL frames&quot;);<br></td></tr
 ><tr
 id=sl_svn11_150
 
  onmouseover="gutterOver(150)"
 
-><td class="source">        }<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_151
 
  onmouseover="gutterOver(151)"
 
-><td class="source"><br></td></tr
+><td class="source">            List&lt;kFrame&gt; frameValues = new List&lt;kFrame&gt;();<br></td></tr
 ><tr
 id=sl_svn11_152
 
  onmouseover="gutterOver(152)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_153
 
  onmouseover="gutterOver(153)"
 
-><td class="source">        /// Event handler for Kinect sensor&#39;s ColorFrameReady event<br></td></tr
+><td class="source">            try<br></td></tr
 ><tr
 id=sl_svn11_154
 
  onmouseover="gutterOver(154)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_155
 
  onmouseover="gutterOver(155)"
 
-><td class="source">        /// &lt;param name=&quot;sender&quot;&gt;object sending the event&lt;/param&gt;<br></td></tr
+><td class="source">                queries = &quot;SELECT * FROM frameManager WHERE session=@sessionid&quot;;<br></td></tr
 ><tr
 id=sl_svn11_156
 
  onmouseover="gutterOver(156)"
 
-><td class="source">        /// &lt;param name=&quot;e&quot;&gt;event arguments&lt;/param&gt;<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_157
 
  onmouseover="gutterOver(157)"
 
-><td class="source">        private void SensorColorFrameReady(object sender, ColorImageFrameReadyEventArgs e)<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@sessionid&quot;, sessionid);<br></td></tr
 ><tr
 id=sl_svn11_158
 
  onmouseover="gutterOver(158)"
 
-><td class="source">        {<br></td></tr
+><td class="source">                sqDatareader = sqCmd.ExecuteReader();<br></td></tr
 ><tr
 id=sl_svn11_159
 
  onmouseover="gutterOver(159)"
 
-><td class="source">            using (ColorImageFrame colorFrame = e.OpenColorImageFrame())<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_160
 
  onmouseover="gutterOver(160)"
 
-><td class="source">            {<br></td></tr
+><td class="source">                while(sqDatareader.Read())<br></td></tr
 ><tr
 id=sl_svn11_161
 
  onmouseover="gutterOver(161)"
 
-><td class="source">                if (colorFrame != null)<br></td></tr
+><td class="source">                {<br></td></tr
 ><tr
 id=sl_svn11_162
 
  onmouseover="gutterOver(162)"
 
-><td class="source">                {<br></td></tr
+><td class="source">                    //int fnum = (int)sqDatareader[&quot;frame&quot;];<br></td></tr
 ><tr
 id=sl_svn11_163
 
  onmouseover="gutterOver(163)"
 
-><td class="source">                    // Copy the pixel data from the image to a temporary array<br></td></tr
+><td class="source">                    kFrame frame = new kFrame((int)sqDatareader[&quot;session&quot;], (int)sqDatareader[&quot;frame&quot;], (string)sqDatareader[&quot;shoulder&quot;], (string)sqDatareader[&quot;accept&quot;], (double)sqDatareader[&quot;tx&quot;], (double)sqDatareader[&quot;ty&quot;], (double)sqDatareader[&quot;tz&quot;], (double)sqDatareader[&quot;sx&quot;], (double)sqDatareader[&quot;sy&quot;], (double)sqDatareader[&quot;sz&quot;]);<br></td></tr
 ><tr
 id=sl_svn11_164
 
  onmouseover="gutterOver(164)"
 
-><td class="source">                    colorFrame.CopyPixelDataTo(this.colorPixels);<br></td></tr
+><td class="source">                    frameValues.Add(frame);<br></td></tr
 ><tr
 id=sl_svn11_165
 
  onmouseover="gutterOver(165)"
 
-><td class="source"><br></td></tr
+><td class="source">                }<br></td></tr
 ><tr
 id=sl_svn11_166
 
  onmouseover="gutterOver(166)"
 
-><td class="source">                    // Write the pixel data into our bitmap<br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_167
 
  onmouseover="gutterOver(167)"
 
-><td class="source">                    this.colorBitmap.WritePixels(<br></td></tr
+><td class="source">            catch (Exception e)<br></td></tr
 ><tr
 id=sl_svn11_168
 
  onmouseover="gutterOver(168)"
 
-><td class="source">                        new Int32Rect(0, 0, this.colorBitmap.PixelWidth, this.colorBitmap.PixelHeight),<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_169
 
  onmouseover="gutterOver(169)"
 
-><td class="source">                        this.colorPixels,<br></td></tr
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
 ><tr
 id=sl_svn11_170
 
  onmouseover="gutterOver(170)"
 
-><td class="source">                        this.colorBitmap.PixelWidth * sizeof(int),<br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_171
 
  onmouseover="gutterOver(171)"
 
-><td class="source">                        0);<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_172
 
  onmouseover="gutterOver(172)"
 
-><td class="source">                }<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Returning ALL frames&quot;);<br></td></tr
 ><tr
 id=sl_svn11_173
 
  onmouseover="gutterOver(173)"
 
-><td class="source">            }<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_174
 
  onmouseover="gutterOver(174)"
 
-><td class="source">        }<br></td></tr
+><td class="source">            return frameValues;<br></td></tr
 ><tr
 id=sl_svn11_175
 
  onmouseover="gutterOver(175)"
 
-><td class="source"><br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_176
 
  onmouseover="gutterOver(176)"
 
-><td class="source">        /// &lt;summary&gt;<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_177
 
  onmouseover="gutterOver(177)"
 
-><td class="source">        /// Handles the user clicking on the screenshot button<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_178
 
  onmouseover="gutterOver(178)"
 
-><td class="source">        /// &lt;/summary&gt;<br></td></tr
+><td class="source">        public kFrame getkFrame(int framenum, int sessionid)<br></td></tr
 ><tr
 id=sl_svn11_179
 
  onmouseover="gutterOver(179)"
 
-><td class="source">        /// &lt;param name=&quot;sender&quot;&gt;object sending the event&lt;/param&gt;<br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_180
 
  onmouseover="gutterOver(180)"
 
-><td class="source">        /// &lt;param name=&quot;e&quot;&gt;event arguments&lt;/param&gt;<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Get frame&quot;);<br></td></tr
 ><tr
 id=sl_svn11_181
 
  onmouseover="gutterOver(181)"
 
-><td class="source">        private void ButtonScreenshotClick(object sender, RoutedEventArgs e)<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_182
 
  onmouseover="gutterOver(182)"
 
-><td class="source">        {<br></td></tr
+><td class="source">            kFrame frame = null;<br></td></tr
 ><tr
 id=sl_svn11_183
 
  onmouseover="gutterOver(183)"
 
-><td class="source">            if (null == this.sensor)<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_184
 
  onmouseover="gutterOver(184)"
 
-><td class="source">            {<br></td></tr
+><td class="source">            try<br></td></tr
 ><tr
 id=sl_svn11_185
 
  onmouseover="gutterOver(185)"
 
-><td class="source">                this.statusBarText.Text = Properties.Resources.ConnectDeviceFirst;<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_186
 
  onmouseover="gutterOver(186)"
 
-><td class="source">                return;<br></td></tr
+><td class="source">                queries = &quot;SELECT * FROM frameManager WHERE frame=@frame, and session=@sessionid&quot;;<br></td></tr
 ><tr
 id=sl_svn11_187
 
  onmouseover="gutterOver(187)"
 
-><td class="source">            }<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_188
 
  onmouseover="gutterOver(188)"
 
-><td class="source"><br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@frame&quot;, framenum);<br></td></tr
 ><tr
 id=sl_svn11_189
 
  onmouseover="gutterOver(189)"
 
-><td class="source">            // create a png bitmap encoder which knows how to save a .png file<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@sessionid&quot;, sessionid);<br></td></tr
 ><tr
 id=sl_svn11_190
 
  onmouseover="gutterOver(190)"
 
-><td class="source">            BitmapEncoder encoder = new PngBitmapEncoder();<br></td></tr
+><td class="source">                sqDatareader = sqCmd.ExecuteReader();<br></td></tr
 ><tr
 id=sl_svn11_191
 
@@ -2834,49 +3164,49 @@ id=sl_svn11_192
 
  onmouseover="gutterOver(192)"
 
-><td class="source">            // create frame from the writable bitmap and add to encoder<br></td></tr
+><td class="source">                sqDatareader.Read();<br></td></tr
 ><tr
 id=sl_svn11_193
 
  onmouseover="gutterOver(193)"
 
-><td class="source">            encoder.Frames.Add(BitmapFrame.Create(this.colorBitmap));<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_194
 
  onmouseover="gutterOver(194)"
 
-><td class="source"><br></td></tr
+><td class="source">                frame = new kFrame((int)sqDatareader[&quot;session&quot;], (int)sqDatareader[&quot;frame&quot;], (string)sqDatareader[&quot;shoulder&quot;], (string)sqDatareader[&quot;accept&quot;], (double)sqDatareader[&quot;tx&quot;], (double)sqDatareader[&quot;ty&quot;], (double)sqDatareader[&quot;tz&quot;], (double)sqDatareader[&quot;sx&quot;], (double)sqDatareader[&quot;sy&quot;], (double)sqDatareader[&quot;sz&quot;]);<br></td></tr
 ><tr
 id=sl_svn11_195
 
  onmouseover="gutterOver(195)"
 
-><td class="source">            string time = System.DateTime.Now.ToString(&quot;hh&#39;-&#39;mm&#39;-&#39;ss&quot;, CultureInfo.CurrentUICulture.DateTimeFormat);<br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_196
 
  onmouseover="gutterOver(196)"
 
-><td class="source"><br></td></tr
+><td class="source">            catch (Exception e)<br></td></tr
 ><tr
 id=sl_svn11_197
 
  onmouseover="gutterOver(197)"
 
-><td class="source">            string myPhotos = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_198
 
  onmouseover="gutterOver(198)"
 
-><td class="source"><br></td></tr
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
 ><tr
 id=sl_svn11_199
 
  onmouseover="gutterOver(199)"
 
-><td class="source">            string path = Path.Combine(myPhotos, &quot;KinectSnapshot-&quot; + time + &quot;.png&quot;);<br></td></tr
+><td class="source">            }<br></td></tr
 ><tr
 id=sl_svn11_200
 
@@ -2888,101 +3218,431 @@ id=sl_svn11_201
 
  onmouseover="gutterOver(201)"
 
-><td class="source">            // write the new file to disk<br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;Return found frame&quot;);<br></td></tr
 ><tr
 id=sl_svn11_202
 
  onmouseover="gutterOver(202)"
 
-><td class="source">            try<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_203
 
  onmouseover="gutterOver(203)"
 
-><td class="source">            {<br></td></tr
+><td class="source">            return frame;<br></td></tr
 ><tr
 id=sl_svn11_204
 
  onmouseover="gutterOver(204)"
 
-><td class="source">                using (FileStream fs = new FileStream(path, FileMode.Create))<br></td></tr
+><td class="source">        }<br></td></tr
 ><tr
 id=sl_svn11_205
 
  onmouseover="gutterOver(205)"
 
-><td class="source">                {<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_206
 
  onmouseover="gutterOver(206)"
 
-><td class="source">                    encoder.Save(fs);<br></td></tr
+><td class="source">        public void createBoxes(kFrame frame)<br></td></tr
 ><tr
 id=sl_svn11_207
 
  onmouseover="gutterOver(207)"
 
-><td class="source">                }<br></td></tr
+><td class="source">        {<br></td></tr
 ><tr
 id=sl_svn11_208
 
  onmouseover="gutterOver(208)"
 
-><td class="source"><br></td></tr
+><td class="source">            System.Console.WriteLine(&quot;New frame&quot;);<br></td></tr
 ><tr
 id=sl_svn11_209
 
  onmouseover="gutterOver(209)"
 
-><td class="source">                this.statusBarText.Text = string.Format(CultureInfo.InvariantCulture, &quot;{0} {1}&quot;, Properties.Resources.ScreenshotWriteSuccess, path);<br></td></tr
+><td class="source"><br></td></tr
 ><tr
 id=sl_svn11_210
 
  onmouseover="gutterOver(210)"
 
-><td class="source">            }<br></td></tr
+><td class="source">            try<br></td></tr
 ><tr
 id=sl_svn11_211
 
  onmouseover="gutterOver(211)"
 
-><td class="source">            catch (IOException)<br></td></tr
+><td class="source">            {<br></td></tr
 ><tr
 id=sl_svn11_212
 
  onmouseover="gutterOver(212)"
 
-><td class="source">            {<br></td></tr
+><td class="source">                //insert 1 part at a time so the SQL doesn&#39;t look awful<br></td></tr
 ><tr
 id=sl_svn11_213
 
  onmouseover="gutterOver(213)"
 
-><td class="source">                this.statusBarText.Text = string.Format(CultureInfo.InvariantCulture, &quot;{0} {1}&quot;, Properties.Resources.ScreenshotWriteFailed, path);<br></td></tr
+><td class="source">                //Shoulder First<br></td></tr
 ><tr
 id=sl_svn11_214
 
  onmouseover="gutterOver(214)"
 
-><td class="source">            }<br></td></tr
+><td class="source">                queries = &quot;INSERT INTO boxManager (session, part, minx, miny, minz, maxx, maxy, maxz) VALUES (@session, @part, @minx, @miny, @minz, @maxx, @maxy, @maxz);&quot;;<br></td></tr
 ><tr
 id=sl_svn11_215
 
  onmouseover="gutterOver(215)"
 
-><td class="source">        }<br></td></tr
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
 ><tr
 id=sl_svn11_216
 
  onmouseover="gutterOver(216)"
 
-><td class="source">    }<br></td></tr
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@session&quot;, frame.getSession());<br></td></tr
 ><tr
 id=sl_svn11_217
 
  onmouseover="gutterOver(217)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@part&quot;, &quot;Shoulder&quot;);<br></td></tr
+><tr
+id=sl_svn11_218
+
+ onmouseover="gutterOver(218)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@minx&quot;, frame.getSX() * .75);<br></td></tr
+><tr
+id=sl_svn11_219
+
+ onmouseover="gutterOver(219)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@miny&quot;, frame.getSY() * .75);<br></td></tr
+><tr
+id=sl_svn11_220
+
+ onmouseover="gutterOver(220)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@minz&quot;, frame.getSZ() * .75);<br></td></tr
+><tr
+id=sl_svn11_221
+
+ onmouseover="gutterOver(221)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@maxx&quot;, frame.getSX() * 1.25);<br></td></tr
+><tr
+id=sl_svn11_222
+
+ onmouseover="gutterOver(222)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@maxy&quot;, frame.getSY() * 1.25);<br></td></tr
+><tr
+id=sl_svn11_223
+
+ onmouseover="gutterOver(223)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@maxz&quot;, frame.getSZ() * 1.25);<br></td></tr
+><tr
+id=sl_svn11_224
+
+ onmouseover="gutterOver(224)"
+
+><td class="source">                sqCmd.ExecuteNonQuery();<br></td></tr
+><tr
+id=sl_svn11_225
+
+ onmouseover="gutterOver(225)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_226
+
+ onmouseover="gutterOver(226)"
+
+><td class="source">                //Torso Second<br></td></tr
+><tr
+id=sl_svn11_227
+
+ onmouseover="gutterOver(227)"
+
+><td class="source">                queries = &quot;INSERT INTO boxManager (session, part, minx, miny, minz, maxx, maxy, maxz) VALUES (@session, @part, @minx, @miny, @minz, @maxx, @maxy, @maxz);&quot;;<br></td></tr
+><tr
+id=sl_svn11_228
+
+ onmouseover="gutterOver(228)"
+
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
+><tr
+id=sl_svn11_229
+
+ onmouseover="gutterOver(229)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@session&quot;, frame.getSession());<br></td></tr
+><tr
+id=sl_svn11_230
+
+ onmouseover="gutterOver(230)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@part&quot;, &quot;Torso&quot;);<br></td></tr
+><tr
+id=sl_svn11_231
+
+ onmouseover="gutterOver(231)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@minx&quot;, frame.getTX() * .75);<br></td></tr
+><tr
+id=sl_svn11_232
+
+ onmouseover="gutterOver(232)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@miny&quot;, frame.getTY() * .75);<br></td></tr
+><tr
+id=sl_svn11_233
+
+ onmouseover="gutterOver(233)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@minz&quot;, frame.getTZ() * .75);<br></td></tr
+><tr
+id=sl_svn11_234
+
+ onmouseover="gutterOver(234)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@maxx&quot;, frame.getTX() * 1.25);<br></td></tr
+><tr
+id=sl_svn11_235
+
+ onmouseover="gutterOver(235)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@maxy&quot;, frame.getTY() * 1.25);<br></td></tr
+><tr
+id=sl_svn11_236
+
+ onmouseover="gutterOver(236)"
+
+><td class="source">                sqCmd.Parameters.AddWithValue(&quot;@maxz&quot;, frame.getTZ() * 1.25);<br></td></tr
+><tr
+id=sl_svn11_237
+
+ onmouseover="gutterOver(237)"
+
+><td class="source">                sqCmd.ExecuteNonQuery();<br></td></tr
+><tr
+id=sl_svn11_238
+
+ onmouseover="gutterOver(238)"
+
+><td class="source">            }<br></td></tr
+><tr
+id=sl_svn11_239
+
+ onmouseover="gutterOver(239)"
+
+><td class="source">            catch (Exception e)<br></td></tr
+><tr
+id=sl_svn11_240
+
+ onmouseover="gutterOver(240)"
+
+><td class="source">            {<br></td></tr
+><tr
+id=sl_svn11_241
+
+ onmouseover="gutterOver(241)"
+
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
+><tr
+id=sl_svn11_242
+
+ onmouseover="gutterOver(242)"
+
+><td class="source">            }<br></td></tr
+><tr
+id=sl_svn11_243
+
+ onmouseover="gutterOver(243)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_244
+
+ onmouseover="gutterOver(244)"
+
+><td class="source">            System.Console.WriteLine(&quot;New frame END&quot;);<br></td></tr
+><tr
+id=sl_svn11_245
+
+ onmouseover="gutterOver(245)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_246
+
+ onmouseover="gutterOver(246)"
+
+><td class="source">        }<br></td></tr
+><tr
+id=sl_svn11_247
+
+ onmouseover="gutterOver(247)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_248
+
+ onmouseover="gutterOver(248)"
+
+><td class="source">        public void printFrames(int sessionid)<br></td></tr
+><tr
+id=sl_svn11_249
+
+ onmouseover="gutterOver(249)"
+
+><td class="source">        {<br></td></tr
+><tr
+id=sl_svn11_250
+
+ onmouseover="gutterOver(250)"
+
+><td class="source">            System.Console.WriteLine(&quot;Print Frames&quot;);<br></td></tr
+><tr
+id=sl_svn11_251
+
+ onmouseover="gutterOver(251)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_252
+
+ onmouseover="gutterOver(252)"
+
+><td class="source">            try<br></td></tr
+><tr
+id=sl_svn11_253
+
+ onmouseover="gutterOver(253)"
+
+><td class="source">            {<br></td></tr
+><tr
+id=sl_svn11_254
+
+ onmouseover="gutterOver(254)"
+
+><td class="source">                queries = &quot;SELECT * from frameManager&quot;;<br></td></tr
+><tr
+id=sl_svn11_255
+
+ onmouseover="gutterOver(255)"
+
+><td class="source">                sqCmd = new SQLiteCommand(queries, sqConnection);<br></td></tr
+><tr
+id=sl_svn11_256
+
+ onmouseover="gutterOver(256)"
+
+><td class="source">                sqDatareader = sqCmd.ExecuteReader();<br></td></tr
+><tr
+id=sl_svn11_257
+
+ onmouseover="gutterOver(257)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_258
+
+ onmouseover="gutterOver(258)"
+
+><td class="source">                while (sqDatareader.Read())<br></td></tr
+><tr
+id=sl_svn11_259
+
+ onmouseover="gutterOver(259)"
+
+><td class="source">                {<br></td></tr
+><tr
+id=sl_svn11_260
+
+ onmouseover="gutterOver(260)"
+
+><td class="source">                    System.Console.WriteLine(&quot;Frame #&quot; + sqDatareader[&quot;frame&quot;] + &quot;: Shoulder: &quot; + sqDatareader[&quot;shoulder&quot;] + &quot;, Acceptable Range: &quot; + sqDatareader[&quot;accept&quot;] + &quot;, SessionID: &quot; + sqDatareader[&quot;session&quot;] + &quot;, two random vals: &quot; + sqDatareader[&quot;tx&quot;] + &quot; &quot; + sqDatareader[&quot;sz&quot;]);<br></td></tr
+><tr
+id=sl_svn11_261
+
+ onmouseover="gutterOver(261)"
+
+><td class="source">                }<br></td></tr
+><tr
+id=sl_svn11_262
+
+ onmouseover="gutterOver(262)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_263
+
+ onmouseover="gutterOver(263)"
+
+><td class="source">            }<br></td></tr
+><tr
+id=sl_svn11_264
+
+ onmouseover="gutterOver(264)"
+
+><td class="source">            catch (Exception e)<br></td></tr
+><tr
+id=sl_svn11_265
+
+ onmouseover="gutterOver(265)"
+
+><td class="source">            {<br></td></tr
+><tr
+id=sl_svn11_266
+
+ onmouseover="gutterOver(266)"
+
+><td class="source">                System.Console.WriteLine(e);<br></td></tr
+><tr
+id=sl_svn11_267
+
+ onmouseover="gutterOver(267)"
+
+><td class="source">            }<br></td></tr
+><tr
+id=sl_svn11_268
+
+ onmouseover="gutterOver(268)"
+
+><td class="source"><br></td></tr
+><tr
+id=sl_svn11_269
+
+ onmouseover="gutterOver(269)"
+
+><td class="source">            System.Console.WriteLine(&quot;Print END&quot;);<br></td></tr
+><tr
+id=sl_svn11_270
+
+ onmouseover="gutterOver(270)"
+
+><td class="source">        }<br></td></tr
+><tr
+id=sl_svn11_271
+
+ onmouseover="gutterOver(271)"
+
+><td class="source">    }<br></td></tr
+><tr
+id=sl_svn11_272
+
+ onmouseover="gutterOver(272)"
 
 ><td class="source">}<br></td></tr
 ></table></pre>
@@ -3102,13 +3762,12 @@ id=sl_svn11_217
  <div id="changelog">
  <p>Change log</p>
  <div>
- <a href="/p/kinect-shoulder/source/detail?spec=svn11&amp;r=11">r11</a>
+ <a href="/p/kinect-shoulder/source/detail?spec=svn11&amp;r=9">r9</a>
  by bpapman@gmail.com
  on Oct 1, 2013
- &nbsp; <a href="/p/kinect-shoulder/source/diff?spec=svn11&r=11&amp;format=side&amp;path=/MainWindow.xaml.cs&amp;old_path=/MainWindow.xaml.cs&amp;old=5">Diff</a>
+ &nbsp; <a href="/p/kinect-shoulder/source/diff?spec=svn11&r=9&amp;format=side&amp;path=/SQLiteDB.cs&amp;old_path=/SQLiteDB.cs&amp;old=8">Diff</a>
  </div>
- <pre>Added/Edited in code for testing new
-database functions</pre>
+ <pre>Updates that fixed everything</pre>
  </div>
  
  
@@ -3117,16 +3776,16 @@ database functions</pre>
  
  
  <script type="text/javascript">
- var detail_url = '/p/kinect-shoulder/source/detail?r=11&spec=svn11';
- var publish_url = '/p/kinect-shoulder/source/detail?r=11&spec=svn11#publish';
+ var detail_url = '/p/kinect-shoulder/source/detail?r=9&spec=svn11';
+ var publish_url = '/p/kinect-shoulder/source/detail?r=9&spec=svn11#publish';
  // describe the paths of this revision in javascript.
  var changed_paths = [];
  var changed_urls = [];
  
- changed_paths.push('/MainWindow.xaml.cs');
- changed_urls.push('/p/kinect-shoulder/source/browse/MainWindow.xaml.cs?r\x3d11\x26spec\x3dsvn11');
+ changed_paths.push('/SQLiteDB.cs');
+ changed_urls.push('/p/kinect-shoulder/source/browse/SQLiteDB.cs?r\x3d9\x26spec\x3dsvn11');
  
- var selected_path = '/MainWindow.xaml.cs';
+ var selected_path = '/SQLiteDB.cs';
  
  
  function getCurrentPageIndex() {
@@ -3190,16 +3849,16 @@ database functions</pre>
  <table><tr><td>Go to:&nbsp;</td><td>
  <select name="files_in_rev" onchange="window.location=this.value">
  
- <option value="/p/kinect-shoulder/source/browse/MainWindow.xaml.cs?r=11&amp;spec=svn11"
+ <option value="/p/kinect-shoulder/source/browse/SQLiteDB.cs?r=9&amp;spec=svn11"
  selected="selected"
- >/MainWindow.xaml.cs</option>
+ >/SQLiteDB.cs</option>
  
  </select>
  </td></tr></table>
  
  
  <div id="review_instr" class="closed">
- <a class="ifOpened" href="/p/kinect-shoulder/source/detail?r=11&spec=svn11#publish">Publish your comments</a>
+ <a class="ifOpened" href="/p/kinect-shoulder/source/detail?r=9&spec=svn11#publish">Publish your comments</a>
  <div class="ifClosed">Double click a line to add a comment</div>
  </div>
  
@@ -3223,16 +3882,28 @@ database functions</pre>
  <div class="closed" style="margin-bottom:3px;" >
  <a class="ifClosed" onclick="return _toggleHidden(this)"><img src="https://ssl.gstatic.com/codesite/ph/images/plus.gif" ></a>
  <a class="ifOpened" onclick="return _toggleHidden(this)"><img src="https://ssl.gstatic.com/codesite/ph/images/minus.gif" ></a>
- <a href="/p/kinect-shoulder/source/detail?spec=svn11&r=5">r5</a>
+ <a href="/p/kinect-shoulder/source/detail?spec=svn11&r=8">r8</a>
+ by bpapman@gmail.com
+ on Oct 1, 2013
+ &nbsp; <a href="/p/kinect-shoulder/source/diff?spec=svn11&r=8&amp;format=side&amp;path=/SQLiteDB.cs&amp;old_path=/SQLiteDB.cs&amp;old=3">Diff</a>
+ <br>
+ <pre class="ifOpened">Pushed more formatted data structs and
+accesses</pre>
+ </div>
+ 
+ <div class="closed" style="margin-bottom:3px;" >
+ <a class="ifClosed" onclick="return _toggleHidden(this)"><img src="https://ssl.gstatic.com/codesite/ph/images/plus.gif" ></a>
+ <a class="ifOpened" onclick="return _toggleHidden(this)"><img src="https://ssl.gstatic.com/codesite/ph/images/minus.gif" ></a>
+ <a href="/p/kinect-shoulder/source/detail?spec=svn11&r=3">r3</a>
  by bpapman@gmail.com
  on Sep 24, 2013
- &nbsp; <a href="/p/kinect-shoulder/source/diff?spec=svn11&r=5&amp;format=side&amp;path=/MainWindow.xaml.cs&amp;old_path=/MainWindow.xaml.cs&amp;old=">Diff</a>
+ &nbsp; <a href="/p/kinect-shoulder/source/diff?spec=svn11&r=3&amp;format=side&amp;path=/SQLiteDB.cs&amp;old_path=/SQLiteDB.cs&amp;old=">Diff</a>
  <br>
  <pre class="ifOpened">dur</pre>
  </div>
  
  
- <a href="/p/kinect-shoulder/source/list?path=/MainWindow.xaml.cs&start=11">All revisions of this file</a>
+ <a href="/p/kinect-shoulder/source/list?path=/SQLiteDB.cs&start=9">All revisions of this file</a>
  </div>
  </div>
  <div class="round1"></div>
@@ -3248,10 +3919,10 @@ database functions</pre>
  <div id="fileinfo_bubble">
  <p>File info</p>
  
- <div>Size: 7963 bytes,
- 217 lines</div>
+ <div>Size: 11391 bytes,
+ 272 lines</div>
  
- <div><a href="//kinect-shoulder.googlecode.com/svn/MainWindow.xaml.cs">View raw file</a></div>
+ <div><a href="//kinect-shoulder.googlecode.com/svn/SQLiteDB.cs">View raw file</a></div>
  </div>
  
  </div>
@@ -3386,9 +4057,9 @@ database functions</pre>
  var codereviews;
  function revsOnLoadHandler() {
  // register our source container with the commenting code
- var paths = {'svn11': '/MainWindow.xaml.cs'}
+ var paths = {'svn11': '/SQLiteDB.cs'}
  codereviews = CR_controller.setup(
- {"assetVersionPath":"https://ssl.gstatic.com/codesite/ph/9670661675484913303","projectName":"kinect-shoulder","projectHomeUrl":"/p/kinect-shoulder","relativeBaseUrl":"","loggedInUserEmail":"bpapman@gmail.com","profileUrl":"/u/bpapman/","token":"H_OkkYVipOavhs4WL94QSL6JBEI:1381443207836","domainName":null,"assetHostPath":"https://ssl.gstatic.com/codesite/ph"}, '', 'svn11', paths,
+ {"projectName":"kinect-shoulder","projectHomeUrl":"/p/kinect-shoulder","assetVersionPath":"https://ssl.gstatic.com/codesite/ph/9670661675484913303","loggedInUserEmail":"bpapman@gmail.com","relativeBaseUrl":"","token":"NhV3P9Nj0TmtL8O6LnXLpg5N3So:1381443204623","profileUrl":"/u/bpapman/","domainName":null,"assetHostPath":"https://ssl.gstatic.com/codesite/ph"}, '', 'svn11', paths,
  CR_BrowseIntegrationFactory);
  
  // register our source container with the commenting code
