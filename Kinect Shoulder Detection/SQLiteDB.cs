@@ -8,7 +8,7 @@ using System.Text;
 //using Microsoft.Samples.Kinect.ColorBasics.kFrame;
 //using System.Windows.Forms;
 
-namespace Microsoft.Samples.Kinect.ColorBasics
+namespace Microsoft.Samples.Kinect.SkeletonBasics
 {
     public class SQLiteDB
     {
@@ -117,7 +117,7 @@ namespace Microsoft.Samples.Kinect.ColorBasics
 
         public void addFrame(kFrame frame, int sessionNum)
         {
-            System.Console.WriteLine("New frame");
+            //System.Console.WriteLine("New frame");
 
             try
             {
@@ -141,7 +141,7 @@ namespace Microsoft.Samples.Kinect.ColorBasics
                 System.Console.WriteLine(e);
             }
 
-            System.Console.WriteLine("New frame END");
+            //System.Console.WriteLine("New frame END");
         }
 
         public List<kFrame> getAllkFrame(int sessionid)
@@ -205,7 +205,7 @@ namespace Microsoft.Samples.Kinect.ColorBasics
 
         public void createBoxes(kFrame frame)
         {
-            System.Console.WriteLine("New frame");
+            //System.Console.WriteLine("New frame");
 
             try
             {
@@ -241,13 +241,13 @@ namespace Microsoft.Samples.Kinect.ColorBasics
                 System.Console.WriteLine(e);
             }
 
-            System.Console.WriteLine("New frame END");
+            //System.Console.WriteLine("New frame END");
 
         }
 
         public void printFrames(int sessionid)
         {
-            System.Console.WriteLine("Print Frames");
+            //System.Console.WriteLine("Print Frames");
 
             try
             {
@@ -257,7 +257,7 @@ namespace Microsoft.Samples.Kinect.ColorBasics
 
                 while (sqDatareader.Read())
                 {
-                    System.Console.WriteLine("Frame #" + sqDatareader["frame"] + ": Shoulder: " + sqDatareader["shoulder"] + ", Acceptable Range: " + sqDatareader["accept"] + ", SessionID: " + sqDatareader["session"] + ", two random vals: " + sqDatareader["tx"] + " " + sqDatareader["sz"]);
+                    //System.Console.WriteLine("Frame #" + sqDatareader["frame"] + ": Shoulder: " + sqDatareader["shoulder"] + ", Acceptable Range: " + sqDatareader["accept"] + ", SessionID: " + sqDatareader["session"] + ", two random vals: " + sqDatareader["tx"] + " " + sqDatareader["sz"]);
                 }
 
             }
@@ -266,7 +266,7 @@ namespace Microsoft.Samples.Kinect.ColorBasics
                 System.Console.WriteLine(e);
             }
 
-            System.Console.WriteLine("Print END");
+            //System.Console.WriteLine("Print END");
         }
     }
 }
