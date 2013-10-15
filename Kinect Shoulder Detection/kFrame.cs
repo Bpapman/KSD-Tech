@@ -8,23 +8,20 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
     public class kFrame
     {
         private int frame, session;
-        private double tx, ty, tz, sx, sy, sz;
+        private double x, y, z;
         private string acceptable;
-        private string shoulder;
+        private string obj;
 
 
-        public kFrame(int Session, int newFrame, string Shoulder, string Accept, double tx, double ty, double tz, double sx, double sy, double sz)
+        public kFrame(int Session, int newFrame, string Obj, string Accept, double x, double y, double z)
         {
             this.session = Session;
             this.frame = newFrame;
-            this.shoulder = Shoulder;
+            this.obj = Obj;
             this.acceptable = Accept;
-            this.sx = sx;
-            this.sy = sy;
-            this.sz = sz;
-            this.tx = tx;
-            this.ty = ty;
-            this.tz = tz;
+            this.x = x;
+            this.y = y;
+            this.z = z;
         }
         
         public int getSession()
@@ -42,40 +39,25 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             return this.acceptable;
         }
 
-        public string getShoulder()
+        public string getObject()
         {
-            return this.shoulder;
+            return this.obj;
         }
 
 
-        public double getSX()
+        public double getX()
         {
-            return this.sx;
+            return this.x;
         }
 
-        public double getSY()
+        public double getY()
         {
-            return this.sy;
+            return this.y;
         }
 
-        public double getSZ()
+        public double getZ()
         {
-            return this.sz;
-        }
-
-        public double getTX()
-        {
-            return this.tx;
-        }
-
-        public double getTY()
-        {
-            return this.ty;
-        }
-
-        public double getTZ()
-        {
-            return this.tz;
+            return this.z;
         }
     }
 }

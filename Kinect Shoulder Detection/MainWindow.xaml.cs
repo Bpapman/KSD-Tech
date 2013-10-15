@@ -162,12 +162,16 @@
                 y = r.Next(0, 100);
                 z = r.Next(0, 100);
                 var = x + y + z;
-                kFrame frame = new kFrame(sessionID, i, "Y", "Y", x, y, z, x, y, z);
+                kFrame frame = new kFrame(sessionID, i, "SHOULDER", "YES", x, y, z);
                 sessionData.addFrame(frame, sessionID);
+                kFrame frame2 = new kFrame(sessionID, i, "TORSO", "YES", x, y, z);
+                sessionData.addFrame(frame2, sessionID);
             }
 
-            kFrame boxframe = new kFrame(sessionID, 0, "Y", "Y", 1, 1, 1, 4, 4, 4);
-            sessionData.createBoxes(boxframe);
+            kFrame boxframe = new kFrame(sessionID, 0, "SHOULDER", null, 1, 1, 1);
+            sessionData.createBox(boxframe);
+            kFrame boxframe2 = new kFrame(sessionID, 0, "TORSO", null, 4, 4, 4);
+            sessionData.createBox(boxframe2);
 
             System.Console.WriteLine("Test Data Inserted");
             sessionData.printFrames(sessionID);
