@@ -4,15 +4,15 @@
 exe
 C#
 .cs
-E:\Users\Alex\Documents\GitHub\KSD-Tech\Kinect Shoulder Detection\obj\Debug\
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\obj\Debug\
 Microsoft.Samples.Kinect.ColorBasics
 none
 false
 DEBUG;TRACE
-E:\Users\Alex\Documents\GitHub\KSD-Tech\Kinect Shoulder Detection\App.xaml
+C:\Users\Brett\workspace\KSD-Tech\Kinect Shoulder Detection\App.xaml
 11151548125
 
-8-493775020
+8-552979909
 14406226002
 MainWindow.xaml;
 
