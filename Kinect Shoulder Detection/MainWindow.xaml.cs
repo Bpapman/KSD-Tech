@@ -82,6 +82,18 @@
         /// </summary>
         private DrawingImage imageSource;
 
+
+        // Saved shoulder data points
+        public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderCenter_Lower;
+        public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderLeft_Lower;
+        public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderRight_Lower;
+        //lower bounds
+        public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderCenter_Upper;
+        public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderLeft_Upper;
+        public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderRight_Upper;
+        //upper bounds
+
+
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
         /// </summary>
@@ -178,8 +190,6 @@
 
 
 
-
-
             // Create the drawing group we'll use for drawing
             this.drawingGroup = new DrawingGroup();
 
@@ -207,6 +217,8 @@
                 // Turn on the skeleton stream to receive skeleton frames
                 this.sensor.SkeletonStream.Enable();
 
+                EnableNearModeSkeletalTracking(); // Enable Near Mode!
+
                 // Add an event handler to be called whenever there is new color frame data
                 this.sensor.SkeletonFrameReady += this.SensorSkeletonFrameReady;
 
@@ -227,6 +239,18 @@
             }
         }
 
+        // Code for enabling near mode so we can be at < .4m
+
+        private void EnableNearModeSkeletalTracking()
+        {
+            if (this.sensor != null && this.sensor.DepthStream != null && this.sensor.SkeletonStream != null)
+            {
+                this.sensor.DepthStream.Range = DepthRange.Near; // Depth in near range enabled
+                this.sensor.SkeletonStream.EnableTrackingInNearRange = true; // enable returning skeletons while depth is in Near Range
+                this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated; // Use seated tracking
+            }
+        }
+
         /// <summary>
         /// Execute shutdown tasks
         /// </summary>
@@ -238,6 +262,56 @@
             {
                 this.sensor.Stop();
             }
+        }
+
+        private void IS_ACCEPTED(Skeleton[] skeleton)
+        {
+            foreach( Skeleton skel in skeleton )
+            {
+                JointCollection jointCollection = skel.Joints;
+
+            // X COORDS
+            if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+            else if (jointCollection[JointType.ShoulderRight].Position.X < Accepted_ShoulderRight_Lower.X || jointCollection[JointType.ShoulderRight].Position.X > Accepted_ShoulderRight_Upper.X)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+            else if (jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Upper.X)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+
+            // Y COORDS
+            if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+            else if (jointCollection[JointType.ShoulderRight].Position.Y < Accepted_ShoulderRight_Lower.Y || jointCollection[JointType.ShoulderRight].Position.Y > Accepted_ShoulderRight_Upper.Y)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+            else if (jointCollection[JointType.ShoulderCenter].Position.Y < Accepted_ShoulderCenter_Lower.Y || jointCollection[JointType.ShoulderCenter].Position.Y > Accepted_ShoulderCenter_Upper.Y)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+
+            //Z COORDS
+            if (jointCollection[JointType.ShoulderLeft].Position.Z < Accepted_ShoulderLeft_Lower.Z || jointCollection[JointType.ShoulderLeft].Position.Z > Accepted_ShoulderLeft_Upper.Z)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+            else if (jointCollection[JointType.ShoulderRight].Position.Z < Accepted_ShoulderRight_Lower.Z || jointCollection[JointType.ShoulderRight].Position.Z > Accepted_ShoulderRight_Upper.Z)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+            else if (jointCollection[JointType.ShoulderCenter].Position.Z < Accepted_ShoulderCenter_Lower.Z || jointCollection[JointType.ShoulderCenter].Position.Z > Accepted_ShoulderCenter_Upper.Z)
+            {
+                //draw a red line on the left shoulder and set flags
+            }
+                }
         }
 
         /// <summary>
@@ -255,6 +329,14 @@
                 {
                     skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
+                    
+                    //DATABASE STUFF 
+
+                    //END DATABASE STUFF
+                    //
+                    //CALCULATE IF IN ACCEPTED RANGE
+                    IS_ACCEPTED(skeletons);
+                    //END CALCULATIONS
                 }
             }
 
@@ -403,15 +485,18 @@
         /// <param name="e">event arguments</param>
         private void CheckBoxSeatedModeChanged(object sender, RoutedEventArgs e)
         {
-            if (null != this.sensor)
+            if (1 < 0)
             {
-                if (this.checkBoxSeatedMode.IsChecked.GetValueOrDefault())
+                if (null != this.sensor)
                 {
-                    this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
-                }
-                else
-                {
-                    this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
+                    if (this.checkBoxSeatedMode.IsChecked.GetValueOrDefault())
+                    {
+                        this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
+                    }
+                    else
+                    {
+                        this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
+                    }
                 }
             }
         }
