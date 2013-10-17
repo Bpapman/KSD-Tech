@@ -83,6 +83,10 @@
         private DrawingImage imageSource;
 
 
+        // Saved Skeletal Frame
+        SkeletonFrame currentSkeletonFrame = null;
+
+
         // Saved shoulder data points
         public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderCenter_Lower;
         public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderLeft_Lower;
@@ -327,6 +331,9 @@
             {
                 if (skeletonFrame != null)
                 {
+                    //Keep current frame at a global
+                    this.currentSkeletonFrame = skeletonFrame;
+
                     skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
                     
@@ -371,6 +378,8 @@
                 this.drawingGroup.ClipGeometry = new RectangleGeometry(new Rect(0.0, 0.0, RenderWidth, RenderHeight));
             }
         }
+
+
 
         /// <summary>
         /// Draws a skeleton's bones and joints
@@ -480,18 +489,20 @@
 
         private void CalibrateMode(object sender, RoutedEventArgs e)
         {
+            System.Console.WriteLine("Calibrating position");
+
             if (null != this.sensor)
             {
                 //grab the data
                 Skeleton[] skeletons = new Skeleton[0];
-                using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame())
-                {
+
+                SkeletonFrame skeletonFrame = this.currentSkeletonFrame;
                     if (skeletonFrame != null)
                     {
                         skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                         skeletonFrame.CopySkeletonDataTo(skeletons);
                     }
-                }
+
 
                 //Center Lower Bound
                 Accepted_ShoulderCenter_Lower.X = 0;
@@ -518,6 +529,8 @@
                 Accepted_ShoulderRight_Upper.Y = 0;
                 Accepted_ShoulderRight_Upper.Z = 0;
             }
+
+            System.Console.WriteLine("Calibrating complete");
         }
 
         /// <summary>
