@@ -478,15 +478,55 @@
             drawingContext.DrawLine(drawPen, this.SkeletonPointToScreen(joint0.Position), this.SkeletonPointToScreen(joint1.Position));
         }
 
+        private void CalibrateMode(object sender, RoutedEventArgs e)
+        {
+            if (null != this.sensor)
+            {
+                //grab the data
+                Skeleton[] skeletons = new Skeleton[0];
+                using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame())
+                {
+                    if (skeletonFrame != null)
+                    {
+                        skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
+                        skeletonFrame.CopySkeletonDataTo(skeletons);
+                    }
+                }
+
+                //Center Lower Bound
+                Accepted_ShoulderCenter_Lower.X = 0;
+                Accepted_ShoulderCenter_Lower.Y = 0;
+                Accepted_ShoulderCenter_Lower.Z = 0;
+                //Center Upper Bound
+                Accepted_ShoulderCenter_Upper.X = 0;
+                Accepted_ShoulderCenter_Upper.Y = 0;
+                Accepted_ShoulderCenter_Upper.Z = 0;
+                //Left Lower Bound
+                Accepted_ShoulderLeft_Lower.X = 0;
+                Accepted_ShoulderLeft_Lower.Y = 0;
+                Accepted_ShoulderLeft_Lower.Z = 0;
+                //Left Upper Bound
+                Accepted_ShoulderLeft_Upper.X = 0;
+                Accepted_ShoulderLeft_Upper.Y = 0;
+                Accepted_ShoulderLeft_Upper.Z = 0;
+                //Right Lower Bound
+                Accepted_ShoulderRight_Lower.X = 0;
+                Accepted_ShoulderRight_Lower.Y = 0;
+                Accepted_ShoulderRight_Lower.Z = 0;
+                //Right Upper Bound
+                Accepted_ShoulderRight_Upper.X = 0;
+                Accepted_ShoulderRight_Upper.Y = 0;
+                Accepted_ShoulderRight_Upper.Z = 0;
+            }
+        }
+
         /// <summary>
         /// Handles the checking or unchecking of the seated mode combo box
         /// </summary>
         /// <param name="sender">object sending the event</param>
         /// <param name="e">event arguments</param>
-        private void CheckBoxSeatedModeChanged(object sender, RoutedEventArgs e)
+        /*private void CheckBoxSeatedModeChanged(object sender, RoutedEventArgs e)
         {
-            if (1 < 0)
-            {
                 if (null != this.sensor)
                 {
                     if (this.checkBoxSeatedMode.IsChecked.GetValueOrDefault())
@@ -498,7 +538,6 @@
                         this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
                     }
                 }
-            }
-        }
+        }*/
     }
 }

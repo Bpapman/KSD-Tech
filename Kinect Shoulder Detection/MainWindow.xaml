@@ -61,10 +61,11 @@
         <Viewbox Grid.Row="1" Stretch="Uniform" HorizontalAlignment="Center">
             <Image Name="Image" Width="640" Height="480"/>
         </Viewbox>
-        <CheckBox Grid.Row="2" Style="{StaticResource SquareCheckBox}" Content="Seated Mode" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 10 10" Name="checkBoxSeatedMode" Checked="CheckBoxSeatedModeChanged" Unchecked="CheckBoxSeatedModeChanged"/>
+        <!--<CheckBox Grid.Row="2" Style="{StaticResource SquareCheckBox}" Content="Seated Mode" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 10 10" Name="checkBoxSeatedMode" Checked="CheckBoxSeatedModeChanged" Unchecked="CheckBoxSeatedModeChanged"/>-->
+        <CheckBox Grid.Row="2" Style="{StaticResource SquareCheckBox}" Content="Calibrate" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0 10 10 10" Name="checkBoxCalibrateMode" Click="CalibrateMode" />
         <StatusBar Grid.Row="3" HorizontalAlignment="Stretch" Name="statusBar" VerticalAlignment="Bottom" Background="White" Foreground="{StaticResource MediumGreyBrush}">
             <StatusBarItem Padding="0 0 0 10">
-                <TextBlock Name="statusBarText" Margin="-1 0 0 0">Click 'Seated' to change skeletal pipeline type!</TextBlock>
+                <TextBlock Name="statusBarText" Margin="-1 0 0 0">Click 'Calibrate' to calibrate your position. Make sure you are in correct posture first!</TextBlock>
             </StatusBarItem>
         </StatusBar>
     </Grid>
