@@ -85,7 +85,7 @@
 
         // Saved Skeletal Frame
         SkeletonFrame currentSkeletonFrame = null;
-
+        Skeleton[] Accepted_Skeletons = new Skeleton[0];
 
         // Saved shoulder data points
         public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderCenter_Lower;
@@ -270,52 +270,52 @@
 
         private void IS_ACCEPTED(Skeleton[] skeleton)
         {
-            foreach( Skeleton skel in skeleton )
+            foreach (Skeleton skel in skeleton)
             {
                 JointCollection jointCollection = skel.Joints;
 
-            // X COORDS
-            if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-            else if (jointCollection[JointType.ShoulderRight].Position.X < Accepted_ShoulderRight_Lower.X || jointCollection[JointType.ShoulderRight].Position.X > Accepted_ShoulderRight_Upper.X)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-            else if (jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Upper.X)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-
-            // Y COORDS
-            if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-            else if (jointCollection[JointType.ShoulderRight].Position.Y < Accepted_ShoulderRight_Lower.Y || jointCollection[JointType.ShoulderRight].Position.Y > Accepted_ShoulderRight_Upper.Y)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-            else if (jointCollection[JointType.ShoulderCenter].Position.Y < Accepted_ShoulderCenter_Lower.Y || jointCollection[JointType.ShoulderCenter].Position.Y > Accepted_ShoulderCenter_Upper.Y)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-
-            //Z COORDS
-            if (jointCollection[JointType.ShoulderLeft].Position.Z < Accepted_ShoulderLeft_Lower.Z || jointCollection[JointType.ShoulderLeft].Position.Z > Accepted_ShoulderLeft_Upper.Z)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-            else if (jointCollection[JointType.ShoulderRight].Position.Z < Accepted_ShoulderRight_Lower.Z || jointCollection[JointType.ShoulderRight].Position.Z > Accepted_ShoulderRight_Upper.Z)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
-            else if (jointCollection[JointType.ShoulderCenter].Position.Z < Accepted_ShoulderCenter_Lower.Z || jointCollection[JointType.ShoulderCenter].Position.Z > Accepted_ShoulderCenter_Upper.Z)
-            {
-                //draw a red line on the left shoulder and set flags
-            }
+                // X COORDS
+                if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
+                {
+                    //draw a red line on the left shoulder and set flags
                 }
+                else if (jointCollection[JointType.ShoulderRight].Position.X < Accepted_ShoulderRight_Lower.X || jointCollection[JointType.ShoulderRight].Position.X > Accepted_ShoulderRight_Upper.X)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+                else if (jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Upper.X)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+
+                // Y COORDS
+                if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+                else if (jointCollection[JointType.ShoulderRight].Position.Y < Accepted_ShoulderRight_Lower.Y || jointCollection[JointType.ShoulderRight].Position.Y > Accepted_ShoulderRight_Upper.Y)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+                else if (jointCollection[JointType.ShoulderCenter].Position.Y < Accepted_ShoulderCenter_Lower.Y || jointCollection[JointType.ShoulderCenter].Position.Y > Accepted_ShoulderCenter_Upper.Y)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+
+                //Z COORDS
+                if (jointCollection[JointType.ShoulderLeft].Position.Z < Accepted_ShoulderLeft_Lower.Z || jointCollection[JointType.ShoulderLeft].Position.Z > Accepted_ShoulderLeft_Upper.Z)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+                else if (jointCollection[JointType.ShoulderRight].Position.Z < Accepted_ShoulderRight_Lower.Z || jointCollection[JointType.ShoulderRight].Position.Z > Accepted_ShoulderRight_Upper.Z)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+                else if (jointCollection[JointType.ShoulderCenter].Position.Z < Accepted_ShoulderCenter_Lower.Z || jointCollection[JointType.ShoulderCenter].Position.Z > Accepted_ShoulderCenter_Upper.Z)
+                {
+                    //draw a red line on the left shoulder and set flags
+                }
+            }
         }
 
         /// <summary>
@@ -332,10 +332,12 @@
                 if (skeletonFrame != null)
                 {
                     //Keep current frame at a global
-                    this.currentSkeletonFrame = skeletonFrame;
+                    currentSkeletonFrame = skeletonFrame;
 
+                    Accepted_Skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
                     skeletonFrame.CopySkeletonDataTo(skeletons);
+                    skeletonFrame.CopySkeletonDataTo(Accepted_Skeletons);
                     
                     //DATABASE STUFF 
 
@@ -493,64 +495,60 @@
 
             if (null != this.sensor)
             {
-                //grab the data
-                Skeleton[] skeletons = new Skeleton[0];
+                ////grab the data
+                //Skeleton[] skeletons = new Skeleton[0];
 
-                SkeletonFrame skeletonFrame = this.currentSkeletonFrame;
-                    if (skeletonFrame != null)
+                //SkeletonFrame skeletonFrame = currentSkeletonFrame;
+                //if (skeletonFrame != null)
+                //{
+                //    skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
+                //    try
+                //    {
+                //        skeletonFrame.CopySkeletonDataTo(skeletons);  //NULL EXCEPTION UNHANDLED CANNOT FIX AT CURRENT MOMENT
+                //    }
+                //    catch
+                //    {
+                //        System.Console.WriteLine("currentSkeletonFrame is NULL");
+                //    }
+                //}
+
+                // Use the Accepted Skeleton from the last frame to calibrate from
+                foreach (Skeleton skel in Accepted_Skeletons)
+                {
+                    JointCollection jointCollection = skel.Joints;
+
+                    //Center Lower Bound
+                    if (jointCollection[JointType.ShoulderCenter].Position.X != 0)
                     {
-                        skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
-                        skeletonFrame.CopySkeletonDataTo(skeletons);
+                        Accepted_ShoulderCenter_Lower.X = jointCollection[JointType.ShoulderCenter].Position.X * 1 / 2;
+                        Accepted_ShoulderCenter_Lower.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 1 / 2;
+                        Accepted_ShoulderCenter_Lower.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 1 / 2;
+                        System.Console.WriteLine(Accepted_ShoulderCenter_Lower.Z);
+                        //Center Upper Bound
+                        Accepted_ShoulderCenter_Upper.X = jointCollection[JointType.ShoulderCenter].Position.X * 3 / 2;
+                        Accepted_ShoulderCenter_Upper.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 3 / 2;
+                        Accepted_ShoulderCenter_Upper.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 3 / 2;
+                        //Left Lower Bound
+                        Accepted_ShoulderLeft_Lower.X = jointCollection[JointType.ShoulderLeft].Position.X * 1 / 2;
+                        Accepted_ShoulderLeft_Lower.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 1 / 2;
+                        Accepted_ShoulderLeft_Lower.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 1 / 2;
+                        //Left Upper Bound
+                        Accepted_ShoulderLeft_Upper.X = jointCollection[JointType.ShoulderLeft].Position.X * 3 / 2;
+                        Accepted_ShoulderLeft_Upper.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 3 / 2;
+                        Accepted_ShoulderLeft_Upper.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 3 / 2;
+                        //Right Lower Bound
+                        Accepted_ShoulderRight_Lower.X = jointCollection[JointType.ShoulderRight].Position.X * 1 / 2;
+                        Accepted_ShoulderRight_Lower.Y = jointCollection[JointType.ShoulderRight].Position.Y * 1 / 2;
+                        Accepted_ShoulderRight_Lower.Z = jointCollection[JointType.ShoulderRight].Position.Z * 1 / 2;
+                        //Right Upper Bound
+                        Accepted_ShoulderRight_Upper.X = jointCollection[JointType.ShoulderRight].Position.X * 3 / 2;
+                        Accepted_ShoulderRight_Upper.Y = jointCollection[JointType.ShoulderRight].Position.Y * 3 / 2;
+                        Accepted_ShoulderRight_Upper.Z = jointCollection[JointType.ShoulderRight].Position.Z * 3 / 2;
                     }
-
-
-                //Center Lower Bound
-                Accepted_ShoulderCenter_Lower.X = 0;
-                Accepted_ShoulderCenter_Lower.Y = 0;
-                Accepted_ShoulderCenter_Lower.Z = 0;
-                //Center Upper Bound
-                Accepted_ShoulderCenter_Upper.X = 0;
-                Accepted_ShoulderCenter_Upper.Y = 0;
-                Accepted_ShoulderCenter_Upper.Z = 0;
-                //Left Lower Bound
-                Accepted_ShoulderLeft_Lower.X = 0;
-                Accepted_ShoulderLeft_Lower.Y = 0;
-                Accepted_ShoulderLeft_Lower.Z = 0;
-                //Left Upper Bound
-                Accepted_ShoulderLeft_Upper.X = 0;
-                Accepted_ShoulderLeft_Upper.Y = 0;
-                Accepted_ShoulderLeft_Upper.Z = 0;
-                //Right Lower Bound
-                Accepted_ShoulderRight_Lower.X = 0;
-                Accepted_ShoulderRight_Lower.Y = 0;
-                Accepted_ShoulderRight_Lower.Z = 0;
-                //Right Upper Bound
-                Accepted_ShoulderRight_Upper.X = 0;
-                Accepted_ShoulderRight_Upper.Y = 0;
-                Accepted_ShoulderRight_Upper.Z = 0;
+                }
             }
 
             System.Console.WriteLine("Calibrating complete");
         }
-
-        /// <summary>
-        /// Handles the checking or unchecking of the seated mode combo box
-        /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-        /*private void CheckBoxSeatedModeChanged(object sender, RoutedEventArgs e)
-        {
-                if (null != this.sensor)
-                {
-                    if (this.checkBoxSeatedMode.IsChecked.GetValueOrDefault())
-                    {
-                        this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
-                    }
-                    else
-                    {
-                        this.sensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Default;
-                    }
-                }
-        }*/
     }
 }
