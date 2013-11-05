@@ -96,7 +96,11 @@
         public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderLeft_Upper;
         public Microsoft.Kinect.SkeletonPoint Accepted_ShoulderRight_Upper;
         //upper bounds
-
+        //
+        bool accept = true;
+        // are we inside our box?
+        bool calibrated = false;
+        // have we calibrated?
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -268,8 +272,10 @@
             }
         }
 
-        private void IS_ACCEPTED(Skeleton[] skeleton)
+        private bool IS_ACCEPTED(Skeleton[] skeleton)
         {
+            bool b = true;
+
             foreach (Skeleton skel in skeleton)
             {
 
@@ -281,49 +287,65 @@
                     // X COORDS
                     if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderRight].Position.X < Accepted_ShoulderRight_Lower.X || jointCollection[JointType.ShoulderRight].Position.X > Accepted_ShoulderRight_Upper.X)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Upper.X)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
 
                     // Y COORDS
                     if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderRight].Position.Y < Accepted_ShoulderRight_Lower.Y || jointCollection[JointType.ShoulderRight].Position.Y > Accepted_ShoulderRight_Upper.Y)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderCenter].Position.Y < Accepted_ShoulderCenter_Lower.Y || jointCollection[JointType.ShoulderCenter].Position.Y > Accepted_ShoulderCenter_Upper.Y)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
 
                     //Z COORDS
                     if (jointCollection[JointType.ShoulderLeft].Position.Z < Accepted_ShoulderLeft_Lower.Z || jointCollection[JointType.ShoulderLeft].Position.Z > Accepted_ShoulderLeft_Upper.Z)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderRight].Position.Z < Accepted_ShoulderRight_Lower.Z || jointCollection[JointType.ShoulderRight].Position.Z > Accepted_ShoulderRight_Upper.Z)
                     {
+                        b = false;
+                        System.Console.WriteLine("BAD Location");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderCenter].Position.Z < Accepted_ShoulderCenter_Lower.Z || jointCollection[JointType.ShoulderCenter].Position.Z > Accepted_ShoulderCenter_Upper.Z)
                     {
+                        b = false;
                         //draw a red line on the left shoulder and set flags
-                        System.Console.WriteLine("BAD Left Shoulder");
-                    }
-
-                    
+                        System.Console.WriteLine("BAD Location");
+                    }  
                 }
             }
+            return b;
         }
 
         /// <summary>
@@ -333,6 +355,7 @@
         /// <param name="e">event arguments</param>
         private void SensorSkeletonFrameReady(object sender, SkeletonFrameReadyEventArgs e)
         {
+
             Skeleton[] skeletons = new Skeleton[0];
 
             using (SkeletonFrame skeletonFrame = e.OpenSkeletonFrame())
@@ -352,7 +375,10 @@
                     //END DATABASE STUFF
                     //
                     //CALCULATE IF IN ACCEPTED RANGE
-                    IS_ACCEPTED(skeletons);
+                    if (calibrated)
+                    {
+                        accept = IS_ACCEPTED(skeletons);
+                    }
                     //END CALCULATIONS
                 }
             }
@@ -434,7 +460,14 @@
 
                 if (joint.TrackingState == JointTrackingState.Tracked)
                 {
-                    drawBrush = this.trackedJointBrush;
+                    if (accept)
+                    {
+                        drawBrush = this.trackedJointBrush;
+                    }
+                    else
+                    {
+                        drawBrush = Brushes.Red;
+                    }
                 }
                 else if (joint.TrackingState == JointTrackingState.Inferred)
                 {
@@ -492,6 +525,15 @@
             if (joint0.TrackingState == JointTrackingState.Tracked && joint1.TrackingState == JointTrackingState.Tracked)
             {
                 drawPen = this.trackedBonePen;
+                //wrong way of changing color for non accepted points
+                //if (!accept)
+                //{
+                //    drawPen = this.trackedBonePen;
+                //}
+                //else
+                //{
+                //    drawPen = new Pen(Brushes.Red);
+                //}
             }
 
             drawingContext.DrawLine(drawPen, this.SkeletonPointToScreen(joint0.Position), this.SkeletonPointToScreen(joint1.Position));
@@ -499,6 +541,8 @@
 
         private void CalibrateMode(object sender, RoutedEventArgs e)
         {
+            calibrated = true;
+
             System.Console.WriteLine("Calibrating position");
 
             if (null != this.sensor)
