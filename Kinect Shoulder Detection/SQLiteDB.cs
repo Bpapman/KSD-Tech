@@ -242,12 +242,12 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 sqCmd = new SQLiteCommand(queries, sqConnection);
                 sqCmd.Parameters.AddWithValue("@session", frame.getSession());
                 sqCmd.Parameters.AddWithValue("@object", frame.getObject());
-                sqCmd.Parameters.AddWithValue("@minx", frame.getX() * .75);
-                sqCmd.Parameters.AddWithValue("@miny", frame.getY() * .75);
-                sqCmd.Parameters.AddWithValue("@minz", frame.getZ() * .75);
-                sqCmd.Parameters.AddWithValue("@maxx", frame.getX() * 1.25);
-                sqCmd.Parameters.AddWithValue("@maxy", frame.getY() * 1.25);
-                sqCmd.Parameters.AddWithValue("@maxz", frame.getZ() * 1.25);
+                sqCmd.Parameters.AddWithValue("@minx", frame.getX() * 1 / 4);
+                sqCmd.Parameters.AddWithValue("@miny", frame.getY() * 1 / 4);
+                sqCmd.Parameters.AddWithValue("@minz", frame.getZ() * 1 / 4);
+                sqCmd.Parameters.AddWithValue("@maxx", frame.getX() * 2);
+                sqCmd.Parameters.AddWithValue("@maxy", frame.getY() * 2);
+                sqCmd.Parameters.AddWithValue("@maxz", frame.getZ() * 2);
                 sqCmd.ExecuteNonQuery();
 
             }

@@ -101,6 +101,11 @@
         // are we inside our box?
         bool calibrated = false;
         // have we calibrated?
+        int sessionID = 0;
+        //Database Session
+        SQLiteDB sessionData;
+        //Database
+        int frame_counter = 0;
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class.
@@ -157,11 +162,9 @@
         /// <param name="e">event arguments</param>
         private void WindowLoaded(object sender, RoutedEventArgs e)
         {
-
-            int sessionID = 0;
             System.Console.WriteLine("Creating DB Session");
 
-            SQLiteDB sessionData = new SQLiteDB();
+            sessionData = new SQLiteDB();
             sessionData.open();
 
             System.Console.WriteLine("Running Table Creation");
@@ -169,35 +172,6 @@
 
             System.Console.WriteLine("Running Header Creation");
             sessionData.createHeader(1);
-
-            //testing purposes for database
-            int x, y, z;
-            double var;
-            Random r = new Random();
-
-            System.Console.WriteLine("Inserting Dummy Test Values");
-            for (int i = 0; i < 100; i++)
-            {
-                x = r.Next(0, 100);
-                y = r.Next(0, 100);
-                z = r.Next(0, 100);
-                var = x + y + z;
-                kFrame frame = new kFrame(sessionID, i, "SHOULDER", "YES", x, y, z);
-                sessionData.addFrame(frame, sessionID);
-                kFrame frame2 = new kFrame(sessionID, i, "TORSO", "YES", x, y, z);
-                sessionData.addFrame(frame2, sessionID);
-            }
-
-            kFrame boxframe = new kFrame(sessionID, 0, "SHOULDER", null, 1, 1, 1);
-            sessionData.createBox(boxframe);
-            kFrame boxframe2 = new kFrame(sessionID, 0, "TORSO", null, 4, 4, 4);
-            sessionData.createBox(boxframe2);
-
-            System.Console.WriteLine("Test Data Inserted");
-            sessionData.printFrames(sessionID);
-
-
-
             // Create the drawing group we'll use for drawing
             this.drawingGroup = new DrawingGroup();
 
@@ -288,19 +262,21 @@
                     if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Left X");
+                        //System.Console.WriteLine(Accepted_ShoulderLeft_Lower.X);
+                        //System.Console.WriteLine(jointCollection[JointType.ShoulderLeft].Position.X);
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderRight].Position.X < Accepted_ShoulderRight_Lower.X || jointCollection[JointType.ShoulderRight].Position.X > Accepted_ShoulderRight_Upper.X)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Right X");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Upper.X)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Torso X");
                         //draw a red line on the left shoulder and set flags
                     }
 
@@ -308,19 +284,19 @@
                     if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Left Y");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderRight].Position.Y < Accepted_ShoulderRight_Lower.Y || jointCollection[JointType.ShoulderRight].Position.Y > Accepted_ShoulderRight_Upper.Y)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Right Y");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderCenter].Position.Y < Accepted_ShoulderCenter_Lower.Y || jointCollection[JointType.ShoulderCenter].Position.Y > Accepted_ShoulderCenter_Upper.Y)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Torso Y");
                         //draw a red line on the left shoulder and set flags
                     }
 
@@ -328,20 +304,20 @@
                     if (jointCollection[JointType.ShoulderLeft].Position.Z < Accepted_ShoulderLeft_Lower.Z || jointCollection[JointType.ShoulderLeft].Position.Z > Accepted_ShoulderLeft_Upper.Z)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Left Z");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderRight].Position.Z < Accepted_ShoulderRight_Lower.Z || jointCollection[JointType.ShoulderRight].Position.Z > Accepted_ShoulderRight_Upper.Z)
                     {
                         b = false;
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Right Z");
                         //draw a red line on the left shoulder and set flags
                     }
                     else if (jointCollection[JointType.ShoulderCenter].Position.Z < Accepted_ShoulderCenter_Lower.Z || jointCollection[JointType.ShoulderCenter].Position.Z > Accepted_ShoulderCenter_Upper.Z)
                     {
                         b = false;
                         //draw a red line on the left shoulder and set flags
-                        System.Console.WriteLine("BAD Location");
+                        System.Console.WriteLine("BAD Location Torso Z");
                     }  
                 }
             }
@@ -370,16 +346,42 @@
                     skeletonFrame.CopySkeletonDataTo(skeletons);
                     skeletonFrame.CopySkeletonDataTo(Accepted_Skeletons);
                     
-                    //DATABASE STUFF 
+                    // Insert Points into Database
 
-                    //END DATABASE STUFF
+                    // 
                     //
                     //CALCULATE IF IN ACCEPTED RANGE
                     if (calibrated)
                     {
                         accept = IS_ACCEPTED(skeletons);
+                        //END CALCULATIONS
+                        foreach (Skeleton skel in Accepted_Skeletons)
+                        {
+                            JointCollection jointCollection = skel.Joints;
+
+                            //Center Lower Bound
+                            if (jointCollection[JointType.ShoulderCenter].Position.X != 0)
+                            {
+                                if (accept)
+                                {
+                                    string str = "Is Accepted";
+                                    //Insert "Is Accepted" into Database
+                                    InsertDB_Collected("LEFT SHOULDER", str, jointCollection[JointType.ShoulderLeft].Position.X, jointCollection[JointType.ShoulderLeft].Position.Y, jointCollection[JointType.ShoulderLeft].Position.Z);
+                                    InsertDB_Collected("RIGHT SHOULDER", str, jointCollection[JointType.ShoulderRight].Position.X, jointCollection[JointType.ShoulderRight].Position.Y, jointCollection[JointType.ShoulderRight].Position.Z);
+                                    InsertDB_Collected("TORSO", str, jointCollection[JointType.ShoulderCenter].Position.X, jointCollection[JointType.ShoulderCenter].Position.Y, jointCollection[JointType.ShoulderCenter].Position.Z);
+                                }
+                                else
+                                {
+                                    string str = "Is Not Accepted";
+                                    //Insert "Is Not Accepted" into Database
+                                    InsertDB_Collected("LEFT SHOULDER", str, jointCollection[JointType.ShoulderLeft].Position.X, jointCollection[JointType.ShoulderLeft].Position.Y, jointCollection[JointType.ShoulderLeft].Position.Z);
+                                    InsertDB_Collected("RIGHT SHOULDER", str, jointCollection[JointType.ShoulderRight].Position.X, jointCollection[JointType.ShoulderRight].Position.Y, jointCollection[JointType.ShoulderRight].Position.Z);
+                                    InsertDB_Collected("TORSO", str, jointCollection[JointType.ShoulderCenter].Position.X, jointCollection[JointType.ShoulderCenter].Position.Y, jointCollection[JointType.ShoulderCenter].Position.Z);
+                                }
+                            }
+                        }
+                        frame_counter++;
                     }
-                    //END CALCULATIONS
                 }
             }
 
@@ -539,31 +541,39 @@
             drawingContext.DrawLine(drawPen, this.SkeletonPointToScreen(joint0.Position), this.SkeletonPointToScreen(joint1.Position));
         }
 
+        private void InsertDB_Collected(string str, string is_accept, float x, float y, float z)
+        {
+            System.Console.WriteLine("Inserting Collected Values for " + str);
+
+            kFrame frame = new kFrame(sessionID, frame_counter, str, is_accept, x, y, z);
+            sessionData.addFrame(frame, sessionID);
+
+            System.Console.WriteLine("Collected Data Inserted");
+            sessionData.printFrames(sessionID);
+
+        }
+
+        private void InsertDB_Calibrate(string str, float x, float y, float z)
+        {
+            System.Console.WriteLine("Inserting Calibration Values for " + str);
+
+            kFrame boxframe = new kFrame(sessionID, 0, str, null, x, y, z);
+            sessionData.createBox(boxframe);
+
+            System.Console.WriteLine("Calibration Data Inserted");
+            sessionData.printFrames(sessionID);
+        }
+
         private void CalibrateMode(object sender, RoutedEventArgs e)
         {
+            sessionID++;
+            frame_counter = 0;
             calibrated = true;
 
             System.Console.WriteLine("Calibrating position");
 
             if (null != this.sensor)
             {
-                ////grab the data
-                //Skeleton[] skeletons = new Skeleton[0];
-
-                //SkeletonFrame skeletonFrame = currentSkeletonFrame;
-                //if (skeletonFrame != null)
-                //{
-                //    skeletons = new Skeleton[skeletonFrame.SkeletonArrayLength];
-                //    try
-                //    {
-                //        skeletonFrame.CopySkeletonDataTo(skeletons);  //NULL EXCEPTION UNHANDLED CANNOT FIX AT CURRENT MOMENT
-                //    }
-                //    catch
-                //    {
-                //        System.Console.WriteLine("currentSkeletonFrame is NULL");
-                //    }
-                //}
-
                 // Use the Accepted Skeleton from the last frame to calibrate from
                 foreach (Skeleton skel in Accepted_Skeletons)
                 {
@@ -572,30 +582,38 @@
                     //Center Lower Bound
                     if (jointCollection[JointType.ShoulderCenter].Position.X != 0)
                     {
-                        Accepted_ShoulderCenter_Lower.X = jointCollection[JointType.ShoulderCenter].Position.X * 1 / 2;
-                        Accepted_ShoulderCenter_Lower.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 1 / 2;
-                        Accepted_ShoulderCenter_Lower.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 1 / 2;
+                        Accepted_ShoulderCenter_Lower.X = jointCollection[JointType.ShoulderCenter].Position.X * 1 / 4;
+                        Accepted_ShoulderCenter_Lower.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 1 / 4;
+                        Accepted_ShoulderCenter_Lower.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 1 / 4;
                         //System.Console.WriteLine(Accepted_ShoulderCenter_Lower.Z);
                         //Center Upper Bound
-                        Accepted_ShoulderCenter_Upper.X = jointCollection[JointType.ShoulderCenter].Position.X * 3 / 2;
-                        Accepted_ShoulderCenter_Upper.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 3 / 2;
-                        Accepted_ShoulderCenter_Upper.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 3 / 2;
+                        Accepted_ShoulderCenter_Upper.X = jointCollection[JointType.ShoulderCenter].Position.X * 2;
+                        Accepted_ShoulderCenter_Upper.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 2;
+                        Accepted_ShoulderCenter_Upper.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 2;
                         //Left Lower Bound
-                        Accepted_ShoulderLeft_Lower.X = jointCollection[JointType.ShoulderLeft].Position.X * 1 / 2;
-                        Accepted_ShoulderLeft_Lower.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 1 / 2;
-                        Accepted_ShoulderLeft_Lower.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 1 / 2;
+                        //System.Console.WriteLine(jointCollection[JointType.ShoulderLeft].Position.X);
+                        Accepted_ShoulderLeft_Lower.X = jointCollection[JointType.ShoulderLeft].Position.X * 1 / 4;
+                        Accepted_ShoulderLeft_Lower.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 1 / 4;
+                        Accepted_ShoulderLeft_Lower.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 1 / 4;
                         //Left Upper Bound
-                        Accepted_ShoulderLeft_Upper.X = jointCollection[JointType.ShoulderLeft].Position.X * 3 / 2;
-                        Accepted_ShoulderLeft_Upper.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 3 / 2;
-                        Accepted_ShoulderLeft_Upper.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 3 / 2;
+                        Accepted_ShoulderLeft_Upper.X = jointCollection[JointType.ShoulderLeft].Position.X * 2;
+                        Accepted_ShoulderLeft_Upper.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 2;
+                        Accepted_ShoulderLeft_Upper.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 2;
                         //Right Lower Bound
-                        Accepted_ShoulderRight_Lower.X = jointCollection[JointType.ShoulderRight].Position.X * 1 / 2;
-                        Accepted_ShoulderRight_Lower.Y = jointCollection[JointType.ShoulderRight].Position.Y * 1 / 2;
-                        Accepted_ShoulderRight_Lower.Z = jointCollection[JointType.ShoulderRight].Position.Z * 1 / 2;
+                        //System.Console.WriteLine(jointCollection[JointType.ShoulderRight].Position.X);
+                        Accepted_ShoulderRight_Lower.X = jointCollection[JointType.ShoulderRight].Position.X * 1 / 4;
+                        Accepted_ShoulderRight_Lower.Y = jointCollection[JointType.ShoulderRight].Position.Y * 1 / 4;
+                        Accepted_ShoulderRight_Lower.Z = jointCollection[JointType.ShoulderRight].Position.Z * 1 / 4;
                         //Right Upper Bound
-                        Accepted_ShoulderRight_Upper.X = jointCollection[JointType.ShoulderRight].Position.X * 3 / 2;
-                        Accepted_ShoulderRight_Upper.Y = jointCollection[JointType.ShoulderRight].Position.Y * 3 / 2;
-                        Accepted_ShoulderRight_Upper.Z = jointCollection[JointType.ShoulderRight].Position.Z * 3 / 2;
+                        Accepted_ShoulderRight_Upper.X = jointCollection[JointType.ShoulderRight].Position.X * 2;
+                        Accepted_ShoulderRight_Upper.Y = jointCollection[JointType.ShoulderRight].Position.Y * 2;
+                        Accepted_ShoulderRight_Upper.Z = jointCollection[JointType.ShoulderRight].Position.Z * 2;
+
+                        // Insert Them Into DataBase
+                        InsertDB_Calibrate("LEFT SHOULDER", jointCollection[JointType.ShoulderLeft].Position.X, jointCollection[JointType.ShoulderLeft].Position.Y, jointCollection[JointType.ShoulderLeft].Position.Z);
+                        InsertDB_Calibrate("RIGHT SHOULDER", jointCollection[JointType.ShoulderRight].Position.X, jointCollection[JointType.ShoulderRight].Position.Y, jointCollection[JointType.ShoulderRight].Position.Z);
+                        InsertDB_Calibrate("TORSO", jointCollection[JointType.ShoulderCenter].Position.X, jointCollection[JointType.ShoulderCenter].Position.Y, jointCollection[JointType.ShoulderCenter].Position.Z);
+                        //
                     }
                 }
             }
