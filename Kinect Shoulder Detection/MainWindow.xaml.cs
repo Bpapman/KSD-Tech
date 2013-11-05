@@ -272,48 +272,56 @@
         {
             foreach (Skeleton skel in skeleton)
             {
+
                 JointCollection jointCollection = skel.Joints;
 
-                // X COORDS
-                if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
+                if (jointCollection[JointType.ShoulderCenter].Position.X != 0)
                 {
-                    //draw a red line on the left shoulder and set flags
-                }
-                else if (jointCollection[JointType.ShoulderRight].Position.X < Accepted_ShoulderRight_Lower.X || jointCollection[JointType.ShoulderRight].Position.X > Accepted_ShoulderRight_Upper.X)
-                {
-                    //draw a red line on the left shoulder and set flags
-                }
-                else if (jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Upper.X)
-                {
-                    //draw a red line on the left shoulder and set flags
-                }
 
-                // Y COORDS
-                if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
-                {
-                    //draw a red line on the left shoulder and set flags
-                }
-                else if (jointCollection[JointType.ShoulderRight].Position.Y < Accepted_ShoulderRight_Lower.Y || jointCollection[JointType.ShoulderRight].Position.Y > Accepted_ShoulderRight_Upper.Y)
-                {
-                    //draw a red line on the left shoulder and set flags
-                }
-                else if (jointCollection[JointType.ShoulderCenter].Position.Y < Accepted_ShoulderCenter_Lower.Y || jointCollection[JointType.ShoulderCenter].Position.Y > Accepted_ShoulderCenter_Upper.Y)
-                {
-                    //draw a red line on the left shoulder and set flags
-                }
+                    // X COORDS
+                    if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
+                    else if (jointCollection[JointType.ShoulderRight].Position.X < Accepted_ShoulderRight_Lower.X || jointCollection[JointType.ShoulderRight].Position.X > Accepted_ShoulderRight_Upper.X)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
+                    else if (jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Upper.X)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
 
-                //Z COORDS
-                if (jointCollection[JointType.ShoulderLeft].Position.Z < Accepted_ShoulderLeft_Lower.Z || jointCollection[JointType.ShoulderLeft].Position.Z > Accepted_ShoulderLeft_Upper.Z)
-                {
-                    //draw a red line on the left shoulder and set flags
-                }
-                else if (jointCollection[JointType.ShoulderRight].Position.Z < Accepted_ShoulderRight_Lower.Z || jointCollection[JointType.ShoulderRight].Position.Z > Accepted_ShoulderRight_Upper.Z)
-                {
-                    //draw a red line on the left shoulder and set flags
-                }
-                else if (jointCollection[JointType.ShoulderCenter].Position.Z < Accepted_ShoulderCenter_Lower.Z || jointCollection[JointType.ShoulderCenter].Position.Z > Accepted_ShoulderCenter_Upper.Z)
-                {
-                    //draw a red line on the left shoulder and set flags
+                    // Y COORDS
+                    if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
+                    else if (jointCollection[JointType.ShoulderRight].Position.Y < Accepted_ShoulderRight_Lower.Y || jointCollection[JointType.ShoulderRight].Position.Y > Accepted_ShoulderRight_Upper.Y)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
+                    else if (jointCollection[JointType.ShoulderCenter].Position.Y < Accepted_ShoulderCenter_Lower.Y || jointCollection[JointType.ShoulderCenter].Position.Y > Accepted_ShoulderCenter_Upper.Y)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
+
+                    //Z COORDS
+                    if (jointCollection[JointType.ShoulderLeft].Position.Z < Accepted_ShoulderLeft_Lower.Z || jointCollection[JointType.ShoulderLeft].Position.Z > Accepted_ShoulderLeft_Upper.Z)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
+                    else if (jointCollection[JointType.ShoulderRight].Position.Z < Accepted_ShoulderRight_Lower.Z || jointCollection[JointType.ShoulderRight].Position.Z > Accepted_ShoulderRight_Upper.Z)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                    }
+                    else if (jointCollection[JointType.ShoulderCenter].Position.Z < Accepted_ShoulderCenter_Lower.Z || jointCollection[JointType.ShoulderCenter].Position.Z > Accepted_ShoulderCenter_Upper.Z)
+                    {
+                        //draw a red line on the left shoulder and set flags
+                        System.Console.WriteLine("BAD Left Shoulder");
+                    }
+
+                    
                 }
             }
         }
@@ -523,7 +531,7 @@
                         Accepted_ShoulderCenter_Lower.X = jointCollection[JointType.ShoulderCenter].Position.X * 1 / 2;
                         Accepted_ShoulderCenter_Lower.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 1 / 2;
                         Accepted_ShoulderCenter_Lower.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 1 / 2;
-                        System.Console.WriteLine(Accepted_ShoulderCenter_Lower.Z);
+                        //System.Console.WriteLine(Accepted_ShoulderCenter_Lower.Z);
                         //Center Upper Bound
                         Accepted_ShoulderCenter_Upper.X = jointCollection[JointType.ShoulderCenter].Position.X * 3 / 2;
                         Accepted_ShoulderCenter_Upper.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 3 / 2;
