@@ -58,9 +58,14 @@
         private readonly Brush inferredJointBrush = Brushes.Yellow;
 
         /// <summary>
-        /// Pen used for drawing bones that are currently tracked
+        /// Pen used for drawing bones that are Accepted
         /// </summary>
         private readonly Pen trackedBonePen = new Pen(Brushes.Green, 6);
+
+        /// <summary>
+        /// Pen used for drawing bones that are Not Accepted
+        /// </summary>
+        private readonly Pen NotAccepted_BonePen = new Pen(Brushes.Red , 6);
 
         /// <summary>
         /// Pen used for drawing bones that are currently inferred
@@ -259,7 +264,7 @@
                 {
 
                     // X COORDS
-                    if (jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Upper.X)
+                    if (jointCollection[JointType.ShoulderLeft].Position.X > Accepted_ShoulderLeft_Lower.X || jointCollection[JointType.ShoulderLeft].Position.X < Accepted_ShoulderLeft_Upper.X)
                     {
                         b = false;
                         System.Console.WriteLine("BAD Location Left X");
@@ -526,16 +531,14 @@
             Pen drawPen = this.inferredBonePen;
             if (joint0.TrackingState == JointTrackingState.Tracked && joint1.TrackingState == JointTrackingState.Tracked)
             {
-                drawPen = this.trackedBonePen;
-                //wrong way of changing color for non accepted points
-                //if (!accept)
-                //{
-                //    drawPen = this.trackedBonePen;
-                //}
-                //else
-                //{
-                //    drawPen = new Pen(Brushes.Red);
-                //}
+                if (accept)
+                {
+                    drawPen = this.trackedBonePen;
+                }
+                else
+                {
+                    drawPen = this.NotAccepted_BonePen;
+                }
             }
 
             drawingContext.DrawLine(drawPen, this.SkeletonPointToScreen(joint0.Position), this.SkeletonPointToScreen(joint1.Position));
