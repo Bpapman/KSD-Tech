@@ -120,7 +120,8 @@
 
         bool Minimum_Testing = false; // set to print data
         bool Maximum_Testing = false;  // set to print data
-        bool z_testing = true;
+        bool z_testing = false; // set to print data
+        bool x_testing = true; // set to print data
 
         public Microsoft.Kinect.SkeletonPoint Minimum_Left;
         public Microsoft.Kinect.SkeletonPoint Maximum_Left;
@@ -226,9 +227,11 @@
             Image.Source = this.imageSource;
 
             //Initialize the minimum value to a large value FOR TESTING
+            Minimum_Left.X = -100;
             Minimum_Left.Y = 100;
             Minimum_Left.Z = 100;
             //Initialize the maximum value to a small value FOR TESTING
+            Maximum_Left.X = 0;
             Maximum_Left.Y = 0;
             Maximum_Left.Z = 0;
 
@@ -325,6 +328,12 @@
                         //System.Console.WriteLine("BAD Location Right X");
                         //draw a red line on the left shoulder and set flags
                     }
+                        /*
+                         * Completeness Tests
+                         * 
+                         * Ignoring the use of shoulder centers x coordinates for testing for the time being.
+                         * Center coordinates inability to conform to a standard of positive or negative is too time consuming.
+                         * 
                     else if (jointCollection[JointType.ShoulderCenter].Position.X < 0)
                     {
                         if(jointCollection[JointType.ShoulderCenter].Position.X > Accepted_ShoulderCenter_Lower.X || jointCollection[JointType.ShoulderCenter].Position.X < Accepted_ShoulderCenter_Upper.X)
@@ -340,7 +349,7 @@
                         {
                             b = false;
                         }
-                    }
+                    } */
 
                     // Y COORDS
                     if (jointCollection[JointType.ShoulderLeft].Position.Y < Accepted_ShoulderLeft_Lower.Y || jointCollection[JointType.ShoulderLeft].Position.Y > Accepted_ShoulderLeft_Upper.Y)
@@ -424,15 +433,51 @@
                             //Center Lower Bound
                             if (jointCollection[JointType.ShoulderCenter].Position.X != 0)
                             {
+                                // sets the y point to the newest skeletons y if it is of a lesser value and prints it
                                 if (Minimum_Testing && Minimum_Left.Y > jointCollection[JointType.ShoulderLeft].Position.Y)
                                 {
                                     Minimum_Left.Y = jointCollection[JointType.ShoulderLeft].Position.Y;
                                     System.Console.WriteLine(Minimum_Left.Y);
                                 }
+                                // set the y point to the newest skeletons y if it is of a greater value and prints it
                                 if (Maximum_Testing && Maximum_Left.Y < jointCollection[JointType.ShoulderLeft].Position.Y)
                                 {
                                     Maximum_Left.Y = jointCollection[JointType.ShoulderLeft].Position.Y;
                                     System.Console.WriteLine(Maximum_Left.Y);
+                                }
+                                // testing on z's
+                                if (z_testing)
+                                {
+                                    // sets the z point to the newest skeletons z if it is of a lesser value
+                                    if (Minimum_Left.Z > jointCollection[JointType.ShoulderLeft].Position.Z)
+                                    {
+                                        Minimum_Left.Z = jointCollection[JointType.ShoulderLeft].Position.Z;
+                                    }
+                                    // sets the z point to the newest skeletons z if it is of a greater value
+                                    if (Maximum_Left.Z < jointCollection[JointType.ShoulderLeft].Position.Z)
+                                    {
+                                        Maximum_Left.Z = jointCollection[JointType.ShoulderLeft].Position.Z;
+                                    }
+                                    System.Console.WriteLine(Minimum_Left.Z);
+                                    System.Console.WriteLine(Maximum_Left.Z);
+                                    System.Console.WriteLine("Tests");
+                                }
+                                // testing on x's
+                                if (x_testing)
+                                {
+                                    // sets the x point to the newest skeletons z if it is of a lesser value
+                                    if (Minimum_Left.X < jointCollection[JointType.ShoulderLeft].Position.X)
+                                    {
+                                        Minimum_Left.X = jointCollection[JointType.ShoulderLeft].Position.X;
+                                    }
+                                    // sets the x point to the newest skeletons z if it is of a greater value
+                                    if (Maximum_Left.X > jointCollection[JointType.ShoulderLeft].Position.X)
+                                    {
+                                        Maximum_Left.X = jointCollection[JointType.ShoulderLeft].Position.X;
+                                    }
+                                    System.Console.WriteLine(Minimum_Left.X);
+                                    System.Console.WriteLine(Maximum_Left.X);
+                                    System.Console.WriteLine("Tests");
                                 }
                                 if (accept)
                                 {
@@ -701,6 +746,14 @@
         {
             calibrated = false;
             accept = true;
+
+            // reset testing values
+            Minimum_Left.X = -100;
+            Minimum_Left.Y = 100;
+            Minimum_Left.Z = 100;
+            Maximum_Left.Y = 0;
+            Maximum_Left.Z = 0;
+            Maximum_Left.X = 0;
         }
     }
 }
