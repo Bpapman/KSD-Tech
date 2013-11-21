@@ -123,30 +123,8 @@
         bool z_testing = false; // set to print data
         bool x_testing = true; // set to print data
 
-        public Microsoft.Kinect.SkeletonPoint Minimum_Left;
-        public Microsoft.Kinect.SkeletonPoint Maximum_Left;
-
-        // range of shoulder down 19mm
-        //1st measurement was .2150000 - .2000000 = .0061640 BAD TESTING METHOD
-        //2nd measurement was .2126502 - .1893231 = .0233271
-        //3rd measurement was .2253843 - .2079565 = .0174278 z coordinate average = 1.09
-        //4th measurement was .1827519 - .1802180 = .0025339 z coordinate average = 1.02 z changing not y (introduce self bias)
-        //5th measurement was .2030828 - .1825651 = .0205177 z coordinate average = 1.05
-
-        // Variance for 2nd, 3rd, 5th measurements = 5.8 E-6
-        // Variance for all values                 = 6.6 E-5
-
-        // range going up 48mm
-        //1st measurement was .2486288 - .1865158 = .0621130 z coordinate average = 0.99
-        //2nd measurement was .2255595 - .1839404 = .0416191 z coordinate average = 1.01
-        //3rd measurement was .2206368 - .0146433 = .0742029 z coordinate average = 0.98
-        //4th measurement was .2311773 - .1786372 = .0525401 z coordinate average = 1.00
-        //5th measurement was .2250451 - .1783799 = .0466652 z coordinate average = 0.99
-        //6th measurement was .2489129 - .1997874 = .0491255 z coordinate average = 1.00
-
-        // Variance for all values = 1.2 E-4
-
-        //testing the z range moving forward a known distance
+        public Microsoft.Kinect.SkeletonPoint Minimum_Left; // storage of minimum values (x,y,z) for testing
+        public Microsoft.Kinect.SkeletonPoint Maximum_Left; // storage of maximum values (x,y,z) for testing
 
         /// <summary>
         /// End of testing variables
@@ -742,7 +720,7 @@
             System.Console.WriteLine("Calibrating complete");
         }
 
-        private void buttonPauseMode_Click(object sender, RoutedEventArgs e)
+        private void Pause_Click(object sender, RoutedEventArgs e)
         {
             calibrated = false;
             accept = true;
