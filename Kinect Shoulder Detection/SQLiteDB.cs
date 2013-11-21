@@ -153,9 +153,9 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             int exist = 0;
             try//to see if the tables already exist
             {
-                queries = String.Format("SELECT count(*) FROM sqlite_master WHERE type='table' AND name='{0}';", tablename);
+                queries = String.Format("SELECT count(*) AS int FROM sqlite_master WHERE type='table' AND name='{0}';", tablename);
                 sqCmd = new SQLiteCommand(queries, sqConnection);
-                exist = sqCmd.ExecuteNonQuery();
+                exist = (int)Convert.ToInt32(sqCmd.ExecuteScalar());
             }
             catch (Exception e)
             {
@@ -178,9 +178,9 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             {
                 try
                 {
-                    queries = String.Format("SELECT count(*) FROM {0};", tablename);
+                    queries = String.Format("SELECT count(*) AS int FROM {0};", tablename);
                     sqCmd = new SQLiteCommand(queries, sqConnection);
-                    exist = sqCmd.ExecuteNonQuery();
+                    exist = (int)Convert.ToInt32(sqCmd.ExecuteScalar());
                 }
                 catch (Exception e)
                 {
@@ -286,7 +286,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         public int getLastSessionID()
         {
             int count;
-            //if empty return 0
+            //if empty return -1 to get 0 increment
             if (tableEmpty("headerManager"))
                 return -1;
             //else get max sessionID from table
@@ -294,9 +294,9 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             {
                 try
                 {
-                    queries = String.Format("SELECT max(session) FROM headerManager;");
+                    queries = String.Format("SELECT max(session) AS int FROM headerManager;");
                     sqCmd = new SQLiteCommand(queries, sqConnection);
-                    count = sqCmd.ExecuteNonQuery();
+                    count = (int)Convert.ToInt32(sqCmd.ExecuteScalar());
                     return count;
                 }
                 catch(Exception e)
