@@ -143,7 +143,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             }
             else
             {
-                System.Console.WriteLine("Tables already existed return flase");
+                System.Console.WriteLine("Tables already existed return false");
                 return false;
             }
         }
@@ -156,6 +156,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 queries = String.Format("SELECT count(*) AS int FROM sqlite_master WHERE type='table' AND name='{0}';", tablename);
                 sqCmd = new SQLiteCommand(queries, sqConnection);
                 exist = (int)Convert.ToInt32(sqCmd.ExecuteScalar());
+                //System.Console.WriteLine("Exist value: " + exist);
             }
             catch (Exception e)
             {
@@ -181,6 +182,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                     queries = String.Format("SELECT count(*) AS int FROM {0};", tablename);
                     sqCmd = new SQLiteCommand(queries, sqConnection);
                     exist = (int)Convert.ToInt32(sqCmd.ExecuteScalar());
+                    //System.Console.WriteLine("Rows found: " + exist);
                 }
                 catch (Exception e)
                 {
@@ -188,12 +190,12 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 }
             }
 
-            //return false if not empty
-            if (exist == 1)
-                return false;
-            //else return true (empty)
-            else
+            //return true if empty
+            if (exist == 0)
                 return true;
+            //else return false if (empty)
+            else
+                return false;
         }
 
 /*
@@ -297,6 +299,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                     queries = String.Format("SELECT max(session) AS int FROM headerManager;");
                     sqCmd = new SQLiteCommand(queries, sqConnection);
                     count = (int)Convert.ToInt32(sqCmd.ExecuteScalar());
+                    System.Console.WriteLine("Highest session value: " + count);
                     return count;
                 }
                 catch(Exception e)
