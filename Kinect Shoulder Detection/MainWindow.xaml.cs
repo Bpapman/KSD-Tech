@@ -121,7 +121,7 @@
         bool Minimum_Testing = false; // set to print data
         bool Maximum_Testing = false;  // set to print data
         bool z_testing = false; // set to print data
-        bool x_testing = true; // set to print data
+        bool x_testing = false; // set to print data
 
         public Microsoft.Kinect.SkeletonPoint Minimum_Left; // storage of minimum values (x,y,z) for testing
         public Microsoft.Kinect.SkeletonPoint Maximum_Left; // storage of maximum values (x,y,z) for testing
