@@ -19,7 +19,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
         public SQLiteDB()
         {
-            //this.onCreate();
+            //no constructor
         }
 
         //Open and create database name
@@ -44,17 +44,13 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             }
             else
             {
-                System.Console.WriteLine("Opening New Database: " + filename);
+                System.Console.WriteLine("Creating New Database: " + filename);
                 dbsetup = String.Format("Data Source={0};Version=3;New=True;Compress=True;", filename);
             }
 
 
             System.Console.WriteLine("Opening Database");
 
-            //original reference "Data Source=test.db;Version=3;New=True;Compress=True;"
-            // code to log in (does nothing locally)Uid = admin; Pwd = admin;
-            //string dbsetup = String.Format("Data Source={0}{1}.sqlite;Version=3;New=True;Compress=True;", System.Environment.MachineName, DateTime.Now.ToString("ddMMyy_HHmmtt"));
-            
             try
             {
                 //sqConnection = new SQLiteConnection("Data Source=" + timestamp + ".sqlite;Version=3;New=True;Compress=True;");
@@ -70,19 +66,16 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             System.Console.WriteLine("DB Open");
         }
 
+        //creates databases based on exact time to ensure only 1 data set will be inside
         public void testingOpen()
         {
-            System.Console.WriteLine("Opening short-term testing Database");
+            System.Console.WriteLine("Creating short-term testing Database");
 
-            //original reference "Data Source=test.db;Version=3;New=True;Compress=True;"
-            // code to log in (does nothing locally)Uid = admin; Pwd = admin;
             string dbsetup = String.Format("Data Source={0}{1}.sqlite;Version=3;New=True;Compress=True;", System.Environment.MachineName, DateTime.Now.ToString("ddMMyy_HHmmsstt"));
-            //dbName = String.Format("Data Source=" + DateTime.Now.ToString("ddMMyyyy_HHMMtt") + ".db;Version=3;New=True;Compress=True;"; 
 
             sqConnection = new SQLiteConnection(dbsetup);
             try
             {
-                //sqConnection = new SQLiteConnection("Data Source=" + timestamp + ".sqlite;Version=3;New=True;Compress=True;");
                 sqConnection.Open();
             }
             catch (Exception e)
@@ -102,9 +95,11 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             sqConnection.Close();
         }
 
+        //sets up the SQL tables but first checks if they already exist
         public bool initTables()
         {
             System.Console.WriteLine("Initializing Non-Testing Tables");
+
 
             bool exist = tableExists("headerManager");
 
@@ -112,22 +107,17 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             {
                 try
                 {
-                    //table for station name/location, the day of creation, and whether its testing or practice mode
+                    //table for station name/location, the day of creation, and whether its testing/examination/practice mode
                     queries = "CREATE TABLE IF NOT EXISTS headerManager (session INTEGER PRIMARY KEY, user VARCHAR(30), machine VARCHAR(30), timestamp VARCHAR(30), mode VARCHAR(30));";
                     sqCmd = new SQLiteCommand(queries, sqConnection);
                     sqCmd.ExecuteNonQuery();
 
-                    //table for identifying users with sessionID's
-                    //queries = "CREATE TABLE IF NOT EXISTS sessionManager (session INTEGER PRIMARY KEY, user VARCHAR(30));";
-                    //sqCmd = new SQLiteCommand(queries, sqConnection);
-                    //sqCmd.ExecuteNonQuery();
-
-                    //table for running time, x,y,z values, and permittable variance values
+                    //table for session, frame, object and it's x,y,z values, and if it fell in permitable range
                     queries = "CREATE TABLE IF NOT EXISTS frameManager (session INTEGER, frame INTEGER, object VARCHAR(20), accept VARCHAR(20), x DOUBLE, y DOUBLE, z DOUBLE, PRIMARY KEY(session, frame, object));";
                     sqCmd = new SQLiteCommand(queries, sqConnection);
                     sqCmd.ExecuteNonQuery();
 
-                    //table for managing the box frame around individual joint points
+                    //table for managing the box frame around individual joint points (session, object, min/max x,y,z)
                     queries = "CREATE TABLE IF NOT EXISTS boxManager (session INTEGER, object VARCHAR(20), minx DOUBLE, miny DOUBLE, minz DOUBLE, maxx DOUBLE, maxy DOUBLE, maxz double, PRIMARY KEY (session, object));";
                     sqCmd = new SQLiteCommand(queries, sqConnection);
                     sqCmd.ExecuteNonQuery();
@@ -153,6 +143,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             int exist = 0;
             try//to see if the tables already exist
             {
+                //Checks SQLite manager table to see if the table name exists
                 queries = String.Format("SELECT count(*) AS int FROM sqlite_master WHERE type='table' AND name='{0}';", tablename);
                 sqCmd = new SQLiteCommand(queries, sqConnection);
                 exist = (int)Convert.ToInt32(sqCmd.ExecuteScalar());
@@ -174,10 +165,10 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
         {
             int exist = 0;
 
-            //if true
+            //if table exists
             if(tableExists(tablename))
             {
-                try
+                try//to see if there are rows inserted into the table
                 {
                     queries = String.Format("SELECT count(*) AS int FROM {0};", tablename);
                     sqCmd = new SQLiteCommand(queries, sqConnection);
@@ -198,40 +189,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 return false;
         }
 
-/*
-        public void initTestTables()
-        {
-            System.Console.WriteLine("Initializing Testing Tables");
-
-            try
-            {
-                //table created when dll starts to keep track of unique identifiers for the program
-                queries = "CREATE TABLE IF NOT EXISTS headerManager (machine VARCHAR(30) PRIMARY KEY, timestamp VARCHAR(30), mode INTEGER);";
-                sqCmd = new SQLiteCommand(queries, sqConnection);
-                sqCmd.ExecuteNonQuery();
-
-                //table for running time, x,y,z values, and permittable variance values
-                queries = "CREATE TABLE IF NOT EXISTS frameManager (session INTEGER, frame INTEGER, object VARCHAR(20), accept VARCHAR(20), x DOUBLE, y DOUBLE, z DOUBLE, PRIMARY KEY(session, frame, object));";
-                sqCmd = new SQLiteCommand(queries, sqConnection);
-                sqCmd.ExecuteNonQuery();
-
-                queries = "CREATE TABLE IF NOT EXISTS boxManager (session INTEGER, object VARCHAR(20), minx DOUBLE, miny DOUBLE, minz DOUBLE, maxx DOUBLE, maxy DOUBLE, maxz double, PRIMARY KEY (session, object));";
-                sqCmd = new SQLiteCommand(queries, sqConnection);
-                sqCmd.ExecuteNonQuery();
-
-                System.Console.WriteLine("Tables Created");
-
-                //Put header into database
-
-            }
-            catch (Exception e)
-            {
-                System.Console.WriteLine(e);
-            }
-
-        }
- */
-
+        //creates header should be ran with every calibrate, automatically run once if new database
         public void createHeader(string user, string mode)
         {
             System.Console.WriteLine("Creating new header");
@@ -242,13 +200,11 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
             try
             {
+                //if table is empty sessionID is 0
                 if (tableEmpty("headerManager"))
                 {
-                    //Put header into database
-                    
-                    //mode is given in function
-
-                    //queries = "CREATE TABLE IF NOT EXISTS headerManager (session INTEGER PRIMARY KEY, user VARCHAR(30), machine VARCHAR(30), timestamp VARCHAR(30), mode VARCHAR(30));";
+                    //reference table code
+                    //"CREATE TABLE IF NOT EXISTS headerManager (session INTEGER PRIMARY KEY, user VARCHAR(30), machine VARCHAR(30), timestamp VARCHAR(30), mode VARCHAR(30));";
                     queries = "INSERT INTO headerManager (session, user, machine, timestamp, mode) VALUES (@session, @user, @machine, @time, @mode);";
                     sqCmd = new SQLiteCommand(queries, sqConnection);
                     //empty table means session 0
@@ -317,7 +273,8 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
             try
             {
-                //queries = "CREATE TABLE frameManager (session INTEGER, frame INTEGER, object VARCHAR(20), accept VARCHAR(20), x DOUBLE, y DOUBLE, z DOUBLE, PRIMARY KEY(session, frame, object));";
+                //reference table code
+                //"CREATE TABLE frameManager (session INTEGER, frame INTEGER, object VARCHAR(20), accept VARCHAR(20), x DOUBLE, y DOUBLE, z DOUBLE, PRIMARY KEY(session, frame, object));";
                 queries = "INSERT INTO frameManager (session, frame, object, accept, x, y, z) VALUES (@session, @frame, @object, @accept, @x, @y, @z);";
                 sqCmd = new SQLiteCommand(queries, sqConnection);
                 sqCmd.Parameters.AddWithValue("@session", frame.getSession());
@@ -337,20 +294,23 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             //System.Console.WriteLine("New frame END");
         }
 
-        public List<kFrame> getAllkFrames(int sessionid)
+        public List<kFrame> getSession(int sessionid)
         {
             //gets all frames for a specified sessionId
-            System.Console.WriteLine("Get ALL frames");
+            System.Console.WriteLine("Get ALL frames for session #" + sessionid);
 
+            //return list of kframes
             List<kFrame> frameValues = new List<kFrame>();
 
             try
             {
+                //create a reader object to read rows
                 queries = "SELECT * FROM frameManager WHERE session=@sessionid";
                 sqCmd = new SQLiteCommand(queries, sqConnection);
                 sqCmd.Parameters.AddWithValue("@sessionid", sessionid);
                 sqDatareader = sqCmd.ExecuteReader();
 
+                //while a row exists with data
                 while(sqDatareader.Read())
                 {
                     //int fnum = (int)sqDatareader["frame"];
@@ -363,26 +323,29 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 System.Console.WriteLine(e);
             }
 
-            System.Console.WriteLine("Returning ALL frames");
+            System.Console.WriteLine("Sucess. Returning session frames");
 
             return frameValues;
         }
 
 
-        public List<kFrame> getkFrames(int sessionid, int framenum)
+        public List<kFrame> getSkeleton(int sessionid, int framenum)
         {
-            System.Console.WriteLine("Get frame");
+            System.Console.WriteLine("Get frame for session #" + sessionid + " and frame #" + framenum);
 
+            //create list of kframes to return
             List<kFrame> frameValues = new List<kFrame>();
 
             try
             {
+                //create reader object to read rows
                 queries = "SELECT * FROM frameManager WHERE frame=@frame, and session=@sessionid";
                 sqCmd = new SQLiteCommand(queries, sqConnection);
                 sqCmd.Parameters.AddWithValue("@frame", framenum);
                 sqCmd.Parameters.AddWithValue("@sessionid", sessionid);
                 sqDatareader = sqCmd.ExecuteReader();
 
+                //read while rows exist with data
                 while(sqDatareader.Read())
                 {
                     kFrame frame = new kFrame((int)sqDatareader["session"], (int)sqDatareader["frame"], (string)sqDatareader["object"], (string)sqDatareader["accept"], (double)sqDatareader["x"], (double)sqDatareader["y"], (double)sqDatareader["z"]);
@@ -395,11 +358,12 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 System.Console.WriteLine(e);
             }
 
-            System.Console.WriteLine("Return found frame");
+            System.Console.WriteLine("Sucess. Returning found skeletal frame");
 
             return frameValues;
         }
 
+/* pointless function with zero use so far but left in code
         public kFrame getObjkFrame(int framenum, int sessionid, string obj)
         {
             System.Console.WriteLine("Get frame for obj" + obj.ToString());
@@ -428,15 +392,16 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
 
             return frame;
         }
-
+*/
+        //create the frame for acceptable movement, highly recommended to change range multipliers with further testing
         public void createBox(kFrame frame)
         {
-            //System.Console.WriteLine("New frame");
+            //System.Console.WriteLine("Creating box parameter");
 
             try
             {
-                //insert 1 part at a time so the SQL doesn't look awful
-                //queries = "CREATE TABLE boxManager (session INTEGER, object VARCHAR(20), minx DOUBLE, miny DOUBLE, minz DOUBLE, maxx DOUBLE, maxy DOUBLE, maxz double, PRIMARY KEY (session, object));";
+                //reference for table code
+                //"CREATE TABLE boxManager (session INTEGER, object VARCHAR(20), minx DOUBLE, miny DOUBLE, minz DOUBLE, maxx DOUBLE, maxy DOUBLE, maxz double, PRIMARY KEY (session, object));";
                 queries = "INSERT INTO boxManager (session, object, minx, miny, minz, maxx, maxy, maxz) VALUES (@session, @object, @minx, @miny, @minz, @maxx, @maxy, @maxz);";
                 sqCmd = new SQLiteCommand(queries, sqConnection);
                 sqCmd.Parameters.AddWithValue("@session", frame.getSession());
@@ -455,25 +420,23 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 System.Console.WriteLine(e);
             }
 
-            //System.Console.WriteLine("New frame END");
+            //System.Console.WriteLine("Box parameters inserted");
 
         }
 
-        public void printFrames(int sessionid)
+        public void printSession(int sessionid)
         {
             //System.Console.WriteLine("Print Frames");
 
             try
             {
-                queries = "SELECT * from frameManager";
-                sqCmd = new SQLiteCommand(queries, sqConnection);
-                sqDatareader = sqCmd.ExecuteReader();
+                List<kFrame> frameValues = new List<kFrame>();
+                frameValues = getSession(sessionid);
 
-                while (sqDatareader.Read())
+                foreach(kFrame f in frameValues)
                 {
-                    //System.Console.WriteLine("Frame #" + sqDatareader["frame"] + ": Shoulder: " + sqDatareader["shoulder"] + ", Acceptable Range: " + sqDatareader["accept"] + ", SessionID: " + sqDatareader["session"] + ", two random vals: " + sqDatareader["tx"] + " " + sqDatareader["sz"]);
+                    System.Console.WriteLine("Frame #" + f.getFrame() + ", Object: " + f.getObject() + ", Accepted: " + f.getAccept() + ", Coordinates(x,y,z): (" + f.getX() + "," + f.getY() + "," + f.getZ(), ")"); 
                 }
-
             }
             catch (Exception e)
             {
