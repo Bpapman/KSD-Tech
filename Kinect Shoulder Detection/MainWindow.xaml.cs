@@ -195,6 +195,8 @@
 
             System.Console.WriteLine("Running Header Creation");
             sessionData.createHeader("Alex", "testing");
+
+            sessionID = sessionData.getLastSessionID();
             // Create the drawing group we'll use for drawing
             this.drawingGroup = new DrawingGroup();
 
