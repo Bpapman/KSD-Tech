@@ -647,10 +647,10 @@
             //System.Console.WriteLine("Inserting Collected Values for " + str);
 
             kFrame frame = new kFrame(sessionID, frame_counter, str, is_accept, x, y, z);
-            sessionData.addFrame(frame, sessionID);
+            sessionData.addFrame(frame);
 
             //System.Console.WriteLine("Collected Data Inserted");
-            sessionData.printFrames(sessionID);
+            //sessionData.printFrames(sessionID);
 
         }
 
@@ -662,12 +662,14 @@
             sessionData.createBox(boxframe);
 
             System.Console.WriteLine("Calibration Data Inserted");
-            sessionData.printFrames(sessionID);
+            //sessionData.printFrames(sessionID);
         }
 
         private void CalibrateMode(object sender, RoutedEventArgs e)
         {
-            sessionID++;
+            sessionData.createHeader("User", "Calibrating");
+            sessionID = sessionData.getLastSessionID() + 1;
+
             frame_counter = 0;
             calibrated = true;
 

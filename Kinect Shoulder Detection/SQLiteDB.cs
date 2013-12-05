@@ -311,7 +311,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
             }
         }
 
-        public void addFrame(kFrame frame, int sessionNum)
+        public void addFrame(kFrame frame)
         {
             //System.Console.WriteLine("New frame");
 
@@ -320,7 +320,7 @@ namespace Microsoft.Samples.Kinect.SkeletonBasics
                 //queries = "CREATE TABLE frameManager (session INTEGER, frame INTEGER, object VARCHAR(20), accept VARCHAR(20), x DOUBLE, y DOUBLE, z DOUBLE, PRIMARY KEY(session, frame, object));";
                 queries = "INSERT INTO frameManager (session, frame, object, accept, x, y, z) VALUES (@session, @frame, @object, @accept, @x, @y, @z);";
                 sqCmd = new SQLiteCommand(queries, sqConnection);
-                sqCmd.Parameters.AddWithValue("@session", sessionNum);
+                sqCmd.Parameters.AddWithValue("@session", frame.getSession());
                 sqCmd.Parameters.AddWithValue("@frame", frame.getFrame());
                 sqCmd.Parameters.AddWithValue("@object", frame.getObject());
                 sqCmd.Parameters.AddWithValue("@accept", frame.getAccept());
