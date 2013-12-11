@@ -673,6 +673,11 @@
             frame_counter = 0;
             calibrated = true;
 
+            // these values are used to set the box around the patient
+            float max_increase_xyz = 1/5; // increasing these values reflects across all joints
+            float min_decrease_xyz = 1/5; // decreasing these values reflects across all joints
+
+
             System.Console.WriteLine("Calibrating position");
 
             if (null != this.sensor)
@@ -685,32 +690,32 @@
                     //Center Lower Bound
                     if (jointCollection[JointType.ShoulderCenter].Position.X != 0)
                     {
-                        Accepted_ShoulderCenter_Lower.X = (jointCollection[JointType.ShoulderCenter].Position.X * 1 / 4);
-                        Accepted_ShoulderCenter_Lower.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 1 / 4;
-                        Accepted_ShoulderCenter_Lower.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 1 / 4;
+                        Accepted_ShoulderCenter_Lower.X = (jointCollection[JointType.ShoulderCenter].Position.X - min_decrease_xyz);
+                        Accepted_ShoulderCenter_Lower.Y = jointCollection[JointType.ShoulderCenter].Position.Y - min_decrease_xyz;
+                        Accepted_ShoulderCenter_Lower.Z = jointCollection[JointType.ShoulderCenter].Position.Z - min_decrease_xyz;
                         //System.Console.WriteLine(Accepted_ShoulderCenter_Lower.Z);
                         //Center Upper Bound
-                        Accepted_ShoulderCenter_Upper.X = (jointCollection[JointType.ShoulderCenter].Position.X * 2);
-                        Accepted_ShoulderCenter_Upper.Y = jointCollection[JointType.ShoulderCenter].Position.Y * 2;
-                        Accepted_ShoulderCenter_Upper.Z = jointCollection[JointType.ShoulderCenter].Position.Z * 2;
+                        Accepted_ShoulderCenter_Upper.X = (jointCollection[JointType.ShoulderCenter].Position.X + max_increase_xyz);
+                        Accepted_ShoulderCenter_Upper.Y = jointCollection[JointType.ShoulderCenter].Position.Y + max_increase_xyz;
+                        Accepted_ShoulderCenter_Upper.Z = jointCollection[JointType.ShoulderCenter].Position.Z + max_increase_xyz;
                         //Left Lower Bound
                         //System.Console.WriteLine(jointCollection[JointType.ShoulderLeft].Position.X);
-                        Accepted_ShoulderLeft_Lower.X = jointCollection[JointType.ShoulderLeft].Position.X * 1 / 4;
-                        Accepted_ShoulderLeft_Lower.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 1 / 4;
-                        Accepted_ShoulderLeft_Lower.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 1 / 4;
+                        Accepted_ShoulderLeft_Lower.X = jointCollection[JointType.ShoulderLeft].Position.X - min_decrease_xyz;
+                        Accepted_ShoulderLeft_Lower.Y = jointCollection[JointType.ShoulderLeft].Position.Y - min_decrease_xyz;
+                        Accepted_ShoulderLeft_Lower.Z = jointCollection[JointType.ShoulderLeft].Position.Z - min_decrease_xyz;
                         //Left Upper Bound
-                        Accepted_ShoulderLeft_Upper.X = jointCollection[JointType.ShoulderLeft].Position.X * 2;
-                        Accepted_ShoulderLeft_Upper.Y = jointCollection[JointType.ShoulderLeft].Position.Y * 2;
-                        Accepted_ShoulderLeft_Upper.Z = jointCollection[JointType.ShoulderLeft].Position.Z * 2;
+                        Accepted_ShoulderLeft_Upper.X = jointCollection[JointType.ShoulderLeft].Position.X + max_increase_xyz;
+                        Accepted_ShoulderLeft_Upper.Y = jointCollection[JointType.ShoulderLeft].Position.Y + max_increase_xyz;
+                        Accepted_ShoulderLeft_Upper.Z = jointCollection[JointType.ShoulderLeft].Position.Z + max_increase_xyz;
                         //Right Lower Bound
                         //System.Console.WriteLine(jointCollection[JointType.ShoulderRight].Position.X);
-                        Accepted_ShoulderRight_Lower.X = jointCollection[JointType.ShoulderRight].Position.X * 1 / 4;
-                        Accepted_ShoulderRight_Lower.Y = jointCollection[JointType.ShoulderRight].Position.Y * 1 / 4;
-                        Accepted_ShoulderRight_Lower.Z = jointCollection[JointType.ShoulderRight].Position.Z * 1 / 4;
+                        Accepted_ShoulderRight_Lower.X = jointCollection[JointType.ShoulderRight].Position.X - min_decrease_xyz;
+                        Accepted_ShoulderRight_Lower.Y = jointCollection[JointType.ShoulderRight].Position.Y - min_decrease_xyz;
+                        Accepted_ShoulderRight_Lower.Z = jointCollection[JointType.ShoulderRight].Position.Z - min_decrease_xyz;
                         //Right Upper Bound
-                        Accepted_ShoulderRight_Upper.X = jointCollection[JointType.ShoulderRight].Position.X * 2;
-                        Accepted_ShoulderRight_Upper.Y = jointCollection[JointType.ShoulderRight].Position.Y * 2;
-                        Accepted_ShoulderRight_Upper.Z = jointCollection[JointType.ShoulderRight].Position.Z * 2;
+                        Accepted_ShoulderRight_Upper.X = jointCollection[JointType.ShoulderRight].Position.X + max_increase_xyz;
+                        Accepted_ShoulderRight_Upper.Y = jointCollection[JointType.ShoulderRight].Position.Y + max_increase_xyz;
+                        Accepted_ShoulderRight_Upper.Z = jointCollection[JointType.ShoulderRight].Position.Z + max_increase_xyz;
 
                         // Insert Them Into DataBase
                         InsertDB_Calibrate("LEFT SHOULDER", jointCollection[JointType.ShoulderLeft].Position.X, jointCollection[JointType.ShoulderLeft].Position.Y, jointCollection[JointType.ShoulderLeft].Position.Z);
